@@ -1,0 +1,22 @@
+{% extends "opensky/template.html" %}
+{% block body %}
+    <div class="container-fluid text-center">
+        <div class="jumbotron">
+            <h2 class="title">Сервис-Партнер</h2>
+            <p>Наши сотрудники</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        {% for person in workers %}
+            <div class="row">
+                <figure class="col-md-6">
+                    <img class="img-rounded" src="{{MEDIA_URL}}{{person.photo}}" height="100%" width="100%"/>
+                </figure>
+                <div class="col-md-6">
+                    <p>{{person.name}} {{person.lastname}}</p>
+                    <p>{{person.email}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
