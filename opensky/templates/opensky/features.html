@@ -1,16 +1,27 @@
 {% extends "opensky/template.html" %}
 {% block body %}
-    <div class="container-fluid features-section">
-        <div class="row text-center">
-            {% for feature in features %}
-                <article class="col-md-4 feature-item">
-                    <div class="thumb">
-                        <i class="glyphicon {{feature.icon}}"></i>
-                    </div>
-                    <h3>{{feature.header}}</h3>
-                    <p>{{feature.text}}</p>
-                </article>
-            {% endfor %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="nav nav-pills nav-stacked">
+                    {% for feature in features %}
+                        <li><a href="#">{{feature.header}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="row text-center">
+                    {% for feature in features %}
+                        <article class="col-md-4 feature-item">
+                            <div class="thumb">
+                                <i class="glyphicon {{feature.icon}}"></i>
+                            </div>
+                            <h3>{{feature.header}}</h3>
+                            <p>{{feature.text}}</p>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

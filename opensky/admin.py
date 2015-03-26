@@ -23,7 +23,8 @@ class PartnerAdmin(admin.ModelAdmin):
 
 
 class WorkerAdmin(admin.ModelAdmin):
-    list_display = ('last_name', 'photo')
+    list_display = ('name', 'last_name', 'email', 'photo')
+
 
 admin.site.register(CarouselImage, CarouselImageAdmin)
 admin.site.register(Feature, FeatureAdmin)
