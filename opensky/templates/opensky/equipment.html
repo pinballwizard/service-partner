@@ -1,0 +1,21 @@
+{% extends "opensky/template.html" %}
+{% block body %}
+    <div class="container-fluid text-center">
+        <div class="jumbotron">
+            <h2 class="title">Товары</h2>
+            <p>Здесь вы можете ознакомиться с оборудованием,<br /> предоставляемым нашей компанией. <br />Более подробную информацию Вы можете узнать по телефонам,<br /> указанном в разделе "Контакты"</p>
+        </div>
+    </div>
+    <div class="container-fluid gallery-section">
+        <div class="row">
+            {% for item in equipments %}
+                <figure class="col-md-4">
+                    <a href="{{MEDIA_URL}}{{item.image}}">
+                        <img class="img-thumbnail" src="{{MEDIA_URL}}{{item.image}}" height="100%" width="100%" alt="товар №1"/>
+                    </a>
+                    <p>{{item.name}} {{item.manufacturer}}</p><span>{{item.price}} руб.</span>
+                </figure>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

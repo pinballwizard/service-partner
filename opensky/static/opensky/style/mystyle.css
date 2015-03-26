@@ -1,0 +1,88 @@
+body {
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: 300;
+  line-height: 21px;
+  color: #404040;
+}
+
+.header {
+    padding-top: 50px;
+    text-align: center;
+    color: #fffff;
+    border-bottom: 1px solid #3F81B1;
+    background-color: #5998C4;
+}
+
+.carousel-section {
+    background-color: #F7F7F7;
+}
+
+.carousel-control.right,
+.carousel-control.left{
+    background-image: none;
+}
+
+.glyphicon-chevron-left,
+.glyphicon-chevron-right{
+    color: #5998C4;
+}
+
+.features-section {
+    color: #FFF;
+    background: url("../images/bg-features.jpg") no-repeat scroll 0px 0px / 100% 100% #141727;
+}
+
+.feature-item:hover .thumb i {
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  color: #3f81b1;
+}
+
+.thumb {
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    padding: 16px;
+    background: url("../images/bg-thumb.png") no-repeat scroll 0px 0px transparent;
+}
+
+.thumb i {
+  font-size: 68px;
+  line-height: 108px;
+  color: #5998c4;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
+.gallery-section {
+    padding: 70px 0px 80px;
+    color: #FFF;
+    background-color: #5998C4;
+}
+
+.services-section {
+    position: relative;
+    background-color: #E0E0E0;
+}
+.services-section
+.service-item {
+    position: relative;
+    z-index: 1;
+    float: left;
+    width: 49%;
+    margin-right: 1%;
+    background-color: #E0E0E0;
+}
+.thumb-middle {
+    width: 100px;
+    height: 100px;
+    padding: 16px;
+    text-align: center;
+    background: url("../images/bg-thumb-middle.png") no-repeat scroll 0px 0px transparent;
+}
+
+.pricing-section {
+    padding: 120px 0px 60px;
+}
