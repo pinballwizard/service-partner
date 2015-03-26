@@ -41,6 +41,14 @@ class Service(models.Model):
         return self.text
 
 
+class Partner(models.Model):
+    name = models.CharField("Название", max_length=20)
+    logo = models.ImageField("Логотип", max_length=100)
+    url = models.URLField("Ссылка на сайт")
+    def __str__(self):
+        return self.name
+
+
 class Equipment(models.Model):
     name = models.CharField("Наименование", max_length=30, unique=True)
     description = models.CharField("Описание", max_length=200)

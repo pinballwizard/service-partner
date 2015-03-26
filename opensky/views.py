@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django import forms
-from opensky.models import CarouselImage, Feature, Equipment, Service
+from opensky.models import CarouselImage, Feature, Equipment, Service, Worker, Partner
 from django.core.mail import send_mail
 
 
@@ -48,9 +48,16 @@ def services(request):
 
 def company(request):
     data = {
-        'services': Service.objects.all(),
+        'partners': Partner.objects.all(),
     }
     return render(request, 'opensky/company.html', data)
+
+
+def workers(request):
+    data = {
+        'workers': Worker.objects.all(),
+    }
+    return render(request, 'opensky/workers.html', data)
 
 
 def contacts(request):

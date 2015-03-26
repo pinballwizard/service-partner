@@ -1,4 +1,20 @@
 {% extends "opensky/template.html" %}
 {% block body %}
-    <p>О комнапии</p>
+    <div class="container-fluid text-center">
+        <div class="jumbotron">
+            <h2 class="title">Сервис-Партнер</h2>
+            <p>Здесь вы можете получить информацию о компании</p>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            {% for partner in partners %}
+                <figure class="col-md-4">
+                    <a href={{partner.url}}>
+                        `<img class="img-thumbnail" src="{{MEDIA_URL}}{{partner.logo}}" height="100%" width="100%" alt="товар №1"/>
+                    </a>
+                </figure>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

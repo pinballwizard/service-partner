@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'contacts', views.contacts),
     url(r'equipment', views.equipment),
     url(r'company', views.company),
+    url(r'workers', views.workers),
 )
