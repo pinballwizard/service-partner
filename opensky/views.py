@@ -1,31 +1,17 @@
 from django.shortcuts import render
 from django import forms
-from opensky.models import CarouselImage, Feature, Equipment, Service, Worker, Partner
+from opensky.models import CarouselImage, Feature, Equipment, Service, Worker, Partner, Office
 from django.core.mail import send_mail
 
-
-class MyTextWidget(forms.TextInput):
+#Not use
+class MyStyle(forms.Widget):
     class Media:
         css = {'all': ('opensky/bootstrap/css/bootstrap.min.css', )}
         js = ('opensky/script/jquery-2.1.3.min.js',
               'opensky/bootstrap/js/bootstrap.min.js')
 
 
-class MyTextareaWidget(forms.Textarea):
-    class Media:
-        css = {'all': ('opensky/bootstrap/css/bootstrap.min.css', )}
-        js = ('opensky/script/jquery-2.1.3.min.js',
-              'opensky/bootstrap/js/bootstrap.min.js')
-
-
-class MyEmailWidget(forms.EmailInput):
-    class Media:
-        css = {'all': ('opensky/bootstrap/css/bootstrap.min.css', )}
-        js = ('opensky/script/jquery-2.1.3.min.js',
-              'opensky/bootstrap/js/bootstrap.min.js')
-
-
-class SenderWidget(MyTextWidget):
+class SenderWidget(forms.TextInput):
     def __init__(self):
         self.attrs = {
             'placeholder': 'Ваше имя',
@@ -34,7 +20,7 @@ class SenderWidget(MyTextWidget):
         }
 
 
-class SubjWidget(MyTextWidget):
+class SubjWidget(forms.TextInput):
     def __init__(self):
         self.attrs = {
             'placeholder': 'Введите тему',
@@ -43,7 +29,7 @@ class SubjWidget(MyTextWidget):
             }
 
 
-class EmailWidget(MyEmailWidget):
+class EmailWidget(forms.EmailInput):
     def __init__(self):
         self.attrs = {
             'placeholder': 'Ваш Email',
@@ -52,7 +38,7 @@ class EmailWidget(MyEmailWidget):
         }
 
 
-class MessageWidget(MyTextareaWidget):
+class MessageWidget(forms.Textarea):
     def __init__(self):
         self.attrs = {
             'placeholder': 'Введите сообщение',
@@ -63,9 +49,9 @@ class MessageWidget(MyTextareaWidget):
 
 class MailForm(forms.Form):
     sender = forms.CharField(widget=SenderWidget, max_length=30)
-    email = forms.EmailField(widget=EmailWidget)
+    email = forms.EmailField(widget=EmailWidget, max_length=30)
     subj = forms.CharField(widget=SubjWidget, max_length=50)
-    message = forms.CharField(widget=MessageWidget)
+    message = forms.CharField(widget=MessageWidget, max_length=500)
 
 
 def index(request):
@@ -126,13 +112,12 @@ def contacts(request):
             email = form.cleaned_data['email']
             subj = form.cleaned_data['subj']
             message = form.cleaned_data['message']
-            s = sender+": "+subj
+            s = ":".join([sender, subj])
             send_mail(s, message, email, [office_mail], fail_silently=False)
-            data = {'sender': sender}
-            return render(request, 'opensky/thank.html', data)
     else:
         form = MailForm()
     data = {
         'form': form,
+        'office': Office.objects.get(pk=1)
     }
     return render(request, 'opensky/contacts.html', data)
