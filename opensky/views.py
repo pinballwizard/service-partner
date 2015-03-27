@@ -4,11 +4,68 @@ from opensky.models import CarouselImage, Feature, Equipment, Service, Worker, P
 from django.core.mail import send_mail
 
 
+class MyTextWidget(forms.TextInput):
+    class Media:
+        css = {'all': ('opensky/bootstrap/css/bootstrap.min.css', )}
+        js = ('opensky/script/jquery-2.1.3.min.js',
+              'opensky/bootstrap/js/bootstrap.min.js')
+
+
+class MyTextareaWidget(forms.Textarea):
+    class Media:
+        css = {'all': ('opensky/bootstrap/css/bootstrap.min.css', )}
+        js = ('opensky/script/jquery-2.1.3.min.js',
+              'opensky/bootstrap/js/bootstrap.min.js')
+
+
+class MyEmailWidget(forms.EmailInput):
+    class Media:
+        css = {'all': ('opensky/bootstrap/css/bootstrap.min.css', )}
+        js = ('opensky/script/jquery-2.1.3.min.js',
+              'opensky/bootstrap/js/bootstrap.min.js')
+
+
+class SenderWidget(MyTextWidget):
+    def __init__(self):
+        self.attrs = {
+            'placeholder': 'Ваше имя',
+            'type': 'text',
+            'class': 'form-control',
+        }
+
+
+class SubjWidget(MyTextWidget):
+    def __init__(self):
+        self.attrs = {
+            'placeholder': 'Введите тему',
+            'type': 'text',
+            'class': 'form-control',
+            }
+
+
+class EmailWidget(MyEmailWidget):
+    def __init__(self):
+        self.attrs = {
+            'placeholder': 'Ваш Email',
+            'type': 'email',
+            'class': 'form-control',
+        }
+
+
+class MessageWidget(MyTextareaWidget):
+    def __init__(self):
+        self.attrs = {
+            'placeholder': 'Введите сообщение',
+            'type':'text',
+            'class': 'form-control',
+        }
+
+
 class MailForm(forms.Form):
-    sender = forms.CharField(label='', max_length=30)
-    email = forms.EmailField(label='', error_messages={'required': "Пожалуйста введите свой e-mail"})
-    subj = forms.CharField(label='', max_length=50)
-    message = forms.CharField(label='')
+    sender = forms.CharField(widget=SenderWidget, max_length=30)
+    email = forms.EmailField(widget=EmailWidget)
+    subj = forms.CharField(widget=SubjWidget, max_length=50)
+    message = forms.CharField(widget=MessageWidget)
 
 
 def index(request):
