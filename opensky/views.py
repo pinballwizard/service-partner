@@ -1,14 +1,57 @@
 from django.shortcuts import render
 from django import forms
-from opensky.models import CarouselImage, Feature, Equipment, Service, Worker, Partner
+from opensky.models import CarouselImage, Feature, Equipment, Service, Worker, Partner, Office
 from django.core.mail import send_mail
+
+#Not use
+class MyStyle(forms.Widget):
+    class Media:
+        css = {'all': ('opensky/bootstrap/css/bootstrap.min.css', )}
+        js = ('opensky/script/jquery-2.1.3.min.js',
+              'opensky/bootstrap/js/bootstrap.min.js')
+
+
+class SenderWidget(forms.TextInput):
+    def __init__(self):
+        self.attrs = {
+            'placeholder': 'Ваше имя',
+            'type': 'text',
+            'class': 'form-control',
+        }
+
+
+class SubjWidget(forms.TextInput):
+    def __init__(self):
+        self.attrs = {
+            'placeholder': 'Введите тему',
+            'type': 'text',
+            'class': 'form-control',
+            }
+
+
+class EmailWidget(forms.EmailInput):
+    def __init__(self):
+        self.attrs = {
+            'placeholder': 'Ваш Email',
+            'type': 'email',
+            'class': 'form-control',
+        }
+
+
+class MessageWidget(forms.Textarea):
+    def __init__(self):
+        self.attrs = {
+            'placeholder': 'Введите сообщение',
+            'type':'text',
+            'class': 'form-control',
+        }
 
 
 class MailForm(forms.Form):
-    sender = forms.CharField(label='', max_length=30)
-    email = forms.EmailField(label='', error_messages={'required': "Пожалуйста введите свой e-mail"})
-    subj = forms.CharField(label='', max_length=50)
-    message = forms.CharField(label='')
+    sender = forms.CharField(widget=SenderWidget, max_length=30)
+    email = forms.EmailField(widget=EmailWidget, max_length=30)
+    subj = forms.CharField(widget=SubjWidget, max_length=50)
+    message = forms.CharField(widget=MessageWidget, max_length=500)
 
 
 def index(request):
@@ -69,13 +112,12 @@ def contacts(request):
             email = form.cleaned_data['email']
             subj = form.cleaned_data['subj']
             message = form.cleaned_data['message']
-            s = sender+": "+subj
+            s = ":".join([sender, subj])
             send_mail(s, message, email, [office_mail], fail_silently=False)
-            data = {'sender': sender}
-            return render(request, 'opensky/thank.html', data)
     else:
         form = MailForm()
     data = {
         'form': form,
+        'office': Office.objects.get(pk=1)
     }
     return render(request, 'opensky/contacts.html', data)

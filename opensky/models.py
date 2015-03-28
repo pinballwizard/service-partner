@@ -7,6 +7,7 @@ class Worker(models.Model):
     birth_day = models.DateField("День рождения")
     email = models.EmailField("Почта")
     photo = models.ImageField("Фотография")
+    phone = models.CharField("Телефон", max_length=10)
     def __str__(self):
         return self.name + " " + self.lastname
 
@@ -27,18 +28,19 @@ class CarouselImage(models.Model):
 
 
 class Feature(models.Model):
-    icon = models.CharField("Название иконки", max_length=20, default='glyphicon-remove')
-    header = models.CharField("Заголовок", max_length=100, default='Вставьте заголовок')
-    text = models.CharField("Текст", max_length=100)
+    image = models.ImageField("Изображение")
+    header = models.CharField("Заголовок", max_length=100)
+    text = models.CharField("Описание", max_length=100)
     def __str__(self):
         return self.header
 
 
 class Service(models.Model):
-    icon = models.CharField("Название иконки", max_length=20, default='glyphicon-remove')
-    text = models.CharField("Текст", max_length=100)
+    image = models.ImageField("Изображение")
+    header = models.CharField("Заголовок", max_length=100)
+    text = models.CharField("Описание", max_length=100)
     def __str__(self):
-        return self.text
+        return self.header
 
 
 class Partner(models.Model):
@@ -58,3 +60,11 @@ class Equipment(models.Model):
     count = models.IntegerField("Количество", max_length=2)
     def __str__(self):
         return self.name
+
+
+class Office(models.Model):
+    address = models.CharField("Контактный адресс", max_length=50)
+    email = models.EmailField("Контактная почта", max_length=50)
+    phone = models.CharField("Контактный телефон", max_length=100)
+    latitude = models.CharField("Широта", max_length=10)
+    longitude = models.CharField("Долгота", max_length=10)

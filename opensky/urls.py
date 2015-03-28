@@ -6,13 +6,12 @@ from django.conf import settings
 from opensky import views
 
 urlpatterns = patterns('',
-    url(r'^$', views.index),
-    url(r'index', views.index),
-    url(r'features', views.features),
-    url(r'pricing', views.pricing),
-    url(r'services', views.services),
-    url(r'contacts', views.contacts),
-    url(r'equipment', views.equipment),
-    url(r'company', views.company),
-    url(r'workers', views.workers),
+    url(r'^$', views.index, name='home'),
+    url(r'^features', views.features, name='features'),
+    url(r'^pricing', views.pricing, name='pricing'),
+    url(r'^services', views.services, name='services'),
+    url(r'^contacts', views.contacts, name='contacts'),
+    url(r'^equipment', views.equipment, name='equipment'),
+    url(r'^company', views.company, name='company'),
+    url(r'^workers', views.workers, name='workers'),
 )
