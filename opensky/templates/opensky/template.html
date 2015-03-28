@@ -24,7 +24,7 @@
 </head>
 <body>
     <header class="header">
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
                      <a class="navbar-brand" href="index.html">Сервис-Партнер</a>
@@ -35,7 +35,7 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav nav-pills nav-justified">
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="active"><a href="index.html">Главная</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" id="menu1" href="#">
@@ -60,9 +60,10 @@
     </header>
     {% block body %}
     {% endblock %}
+    <div class="wrapper row">
+        <footer>
+            © 2015 ООО "Спорт-лото" created by <a href="#">Craby</a><br><br>
+        </footer>
+    </div>
 </body>
-<footer>
-    © 2015 ООО "Спорт-лото"<br>
-    created by <a href="">Craby</a><br><br>
-</footer>
 </html>

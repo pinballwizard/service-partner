@@ -1,4 +1,9 @@
+html{
+    min-height: 100%;
+    position: relative;
+}
 body {
+  min-height: 100%;
   font-size: 16px;
   font-family: 'Roboto';
   font-weight: 300;
@@ -9,13 +14,31 @@ body {
 .header {
     padding-top: 50px;
     text-align: center;
-    color: #fffff;
+    color: #ffffff;
     border-bottom: 1px solid #3F81B1;
     background-color: #5998C4;
 }
 
+footer{
+    position: absolute;
+    bottom: 0;
+    height: 30px;
+}
+
+.wrapper{
+    width: 100%;
+    padding-bottom:30px;
+}
+
 .carousel-section {
     background-color: #F7F7F7;
+}
+.carousel-inner>.item>img{
+    margin: auto;
+}
+.carousel-caption{
+    color: #404040;
+    text-shadow: none;
 }
 
 .carousel-control.right,
@@ -26,6 +49,13 @@ body {
 .glyphicon-chevron-left,
 .glyphicon-chevron-right{
     color: #5998C4;
+}
+.carousel-indicators>li{
+    background-color: #5998C4;
+}
+
+.carousel-indicators .active{
+    background-color: #204d74;
 }
 
 .features-section {
@@ -94,4 +124,9 @@ body {
 
 .fancybox-title-over-wrap > div {
     padding: 10px;
+}
+li{
+    height: 50px;
+    margin: 0;
+    padding: 0 !important;
 }
