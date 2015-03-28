@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django import forms
 from opensky.models import CarouselImage, Feature, Equipment, Service, Worker, Partner, Office
-from django.core.mail import send_mail
+from django.core import mail
+from django.http import HttpResponse
+from django.core.mail.backends.smtp import EmailBackend
 
 #Not use
 class MyStyle(forms.Widget):
@@ -104,7 +106,11 @@ def workers(request):
 
 
 def contacts(request):
-    office_mail = 'menstenebris@gmail.com'
+    office = Office.objects.get(pk=1)
+    office_mail = office.email
+    server_mail = 'ooo.service-partner@yandex.ru'
+    # my_backend = EmailBackend(host="smtp.gmail.com", port=465, username="menstenebris@gmail.com", password="14875264QWed", use_tls=True, use_ssl=True, fail_silently=False)
+    # con = mail.get_connection()
     if request.method == 'POST':
         form = MailForm(request.POST)
         if form.is_valid():
@@ -112,12 +118,18 @@ def contacts(request):
             email = form.cleaned_data['email']
             subj = form.cleaned_data['subj']
             message = form.cleaned_data['message']
-            s = ":".join([sender, subj])
-            send_mail(s, message, email, [office_mail], fail_silently=False)
+            s = ":".join([sender, email, subj])
+            mail.send_mail(s, message, server_mail, [office_mail], fail_silently=False)
+            data = {
+                'form': form,
+                'office': office,
+                'thank': True
+            }
+            return render(request, 'opensky/contacts.html', data)
     else:
         form = MailForm()
     data = {
         'form': form,
-        'office': Office.objects.get(pk=1)
+        'office': office
     }
     return render(request, 'opensky/contacts.html', data)

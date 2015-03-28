@@ -130,3 +130,6 @@ li{
     margin: 0;
     padding: 0 !important;
 }
+iframe{
+    border: none;
+}
