@@ -9,7 +9,7 @@ class Worker(models.Model):
     photo = models.ImageField("Фотография")
     phone = models.CharField("Телефон", max_length=10)
     def __str__(self):
-        return self.name + " " + self.lastname
+        return self.name + " " + self.last_name
 
 
 class Blog(models.Model):

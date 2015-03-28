@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django import forms
-from opensky.models import CarouselImage, Feature, Equipment, Service, Worker, Partner, Office
+from opensky.models import CarouselImage, Blog, Feature, Equipment, Service, Worker, Partner, Office
 from django.core import mail
 from django.http import HttpResponse
 from django.core.mail.backends.smtp import EmailBackend
@@ -94,6 +94,7 @@ def services(request):
 def company(request):
     data = {
         'partners': Partner.objects.all(),
+        'about_company': Blog.objects.get(mark="about_company"),
     }
     return render(request, 'opensky/company.html', data)
 
