@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django import forms
-from opensky.models import CarouselImage, Blog, Feature, Equipment, Service, Worker, Partner, Office
+from opensky.models import *
 from django.core import mail
 from django.http import HttpResponse
 from django.core.mail.backends.smtp import EmailBackend
@@ -110,8 +110,6 @@ def contacts(request):
     office = Office.objects.get(pk=1)
     office_mail = office.email
     server_mail = 'ooo.service-partner@yandex.ru'
-    # my_backend = EmailBackend(host="smtp.gmail.com", port=465, username="menstenebris@gmail.com", password="14875264QWed", use_tls=True, use_ssl=True, fail_silently=False)
-    # con = mail.get_connection()
     if request.method == 'POST':
         form = MailForm(request.POST)
         if form.is_valid():
