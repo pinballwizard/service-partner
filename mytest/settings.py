@@ -87,3 +87,15 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = '/static/'
 MEDIA_URL = '/images/'
 MEDIA_ROOT = 'images/'
+
+
+#Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.yandex.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'ooo.service-partner@yandex.ru'
+# EMAIL_HOST_PASSWORD = 'xVSTuUEWWk'
+EMAIL_HOST_PASSWORD = 'xVSTuUEWWk'
+# EMAIL_USE_TLS = True
+EMAIL_USE_SSL = True

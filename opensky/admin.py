@@ -1,5 +1,5 @@
 from django.contrib import admin
-from opensky.models import CarouselImage, Feature, Equipment, Service, Partner, Worker, Office
+from opensky.models import *
 
 @admin.register(CarouselImage)
 class CarouselImageAdmin(admin.ModelAdmin):
@@ -28,3 +28,11 @@ class WorkerAdmin(admin.ModelAdmin):
 @admin.register(Office)
 class OfficeAdmin(admin.ModelAdmin):
     list_display = ('address', 'email')
+
+@admin.register(Blog)
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ('mark', 'text')
+
+@admin.register(SocialWidget)
+class SocialWidgetAdmin(admin.ModelAdmin):
+    list_display = ('mark', 'logo', 'url')

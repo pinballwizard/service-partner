@@ -9,10 +9,10 @@
     <div class="container-fluid">
         {% for person in workers %}
             <div class="row">
-                <figure class="col-md-6">
-                    <img class="img-rounded" src="{{MEDIA_URL}}{{person.photo}}" height="100%" width="100%"/>
+                <figure class="col-md-4">
+                    <img class="img-rounded" src="{{MEDIA_URL}}{{person.photo}}" height="100" width="100"/>
                 </figure>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <p>{{person.name}} {{person.lastname}}</p>
                     <p>{{person.email}}</p>
                 </div>

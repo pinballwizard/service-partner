@@ -9,7 +9,7 @@ class Worker(models.Model):
     photo = models.ImageField("Фотография")
     phone = models.CharField("Телефон", max_length=10)
     def __str__(self):
-        return self.name + " " + self.lastname
+        return self.name + " " + self.last_name
 
 
 class Blog(models.Model):
@@ -44,7 +44,7 @@ class Service(models.Model):
 
 
 class Partner(models.Model):
-    name = models.CharField("Название", max_length=20)
+    name = models.CharField("Название", max_length=20, unique=True)
     logo = models.ImageField("Логотип", max_length=100)
     url = models.URLField("Ссылка на сайт")
     def __str__(self):
@@ -68,3 +68,11 @@ class Office(models.Model):
     phone = models.CharField("Контактный телефон", max_length=100)
     latitude = models.CharField("Широта", max_length=10)
     longitude = models.CharField("Долгота", max_length=10)
+
+
+class SocialWidget(models.Model):
+    mark = models.CharField("Название", max_length=20)
+    logo = models.ImageField("Логотип")
+    url = models.URLField("Ссылка")
+    def __str__(self):
+        return self.mark
