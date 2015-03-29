@@ -12,26 +12,52 @@ body {
 }
 
 .header {
-    padding-top: 50px;
+    padding-top: 60px;
     text-align: center;
     color: #ffffff;
-    border-bottom: 1px solid #3F81B1;
-    background-color: #5998C4;
+}
+.navbar-default .navbar-brand{
+    color: #FFFFFF;
+}
+.navbar-default{
+    background-color: #548DBF;
+    border-bottom: none;
+}
+.navbar-default .navbar-nav>li>a {
+    color:#FFFFFF;
+    font-size: 24px;
+}
+.navbar-default .navbar-nav:last-child{
+    margin-right: 50px;
+}
+.nav>li:hover{
+    background-color: #FFFFFF;
+}
+.dropdown-menu{
+    background-color: #FFFFFF;
+}
+.nav-pills>li>a{
+    font-size: 20px;
 }
 
 footer{
+    width: 100%;
     position: absolute;
     bottom: 0;
     height: 30px;
 }
-
+footer>span{
+    float: right;
+    width: auto;
+    height: 30px;
+    padding-right: 20px;
+}
 .wrapper{
-    width: 100%;
     padding-bottom:30px;
 }
 
 .carousel-section {
-    background-color: #F7F7F7;
+    background-color: #EBEEF2;
 }
 .carousel-inner>.item>img{
     margin: auto;
@@ -48,14 +74,19 @@ footer{
 
 .glyphicon-chevron-left,
 .glyphicon-chevron-right{
-    color: #5998C4;
+    color: #548DBF;
 }
 .carousel-indicators>li{
-    background-color: #5998C4;
+    background-color: #548DBF;
 }
 
 .carousel-indicators .active{
     background-color: #204d74;
+}
+
+.jumbotron{
+    background-color: #96A7C4;
+    color: #FFFFFF;
 }
 
 .features-section {
@@ -65,7 +96,7 @@ footer{
 
 .feature-item:hover .thumb i {
   text-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  color: #3f81b1;
+  color: #548DBF;
 }
 
 .thumb {
@@ -79,7 +110,7 @@ footer{
 .thumb i {
   font-size: 68px;
   line-height: 108px;
-  color: #5998c4;
+  color: #548DBF;
   -webkit-transition: all 0.25s ease;
   -moz-transition: all 0.25s ease;
   -o-transition: all 0.25s ease;
@@ -89,7 +120,10 @@ footer{
 .gallery-section {
     padding: 70px 0px 80px;
     color: #FFF;
-    background-color: #5998C4;
+    background-color: #548DBF;
+}
+.product{
+    height: 100%;
 }
 
 .services-section {
@@ -124,9 +158,4 @@ footer{
 
 .fancybox-title-over-wrap > div {
     padding: 10px;
-}
-li{
-    height: 50px;
-    margin: 0;
-    padding: 0 !important;
 }
