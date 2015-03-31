@@ -9,13 +9,13 @@
     <div class="container-fluid text-center">
         {{about_company.text}}
     </div>
-    <div class="container-fluid text-center">
+    <div class="container text-center">
         <h2 class="title">Наши партнеры</h2>
         <div class="row">
             {% for partner in partners %}
                 <figure class="col-md-2">
                     <a href={{partner.url}}>
-                        <img class="img-thumbnail" src="{{MEDIA_URL}}{{partner.logo}}" height="200" width="200"/>
+                        <img class="img-thumbnail" src="{{MEDIA_URL}}{{partner.logo}}" class="img-responsive" height="200" width="200"/>
                     </a>
                 </figure>
             {% endfor %}

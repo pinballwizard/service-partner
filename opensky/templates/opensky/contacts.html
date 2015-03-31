@@ -1,10 +1,12 @@
 {% extends "opensky/template.html" %}
 {% block body %}
-    <div class="container-fluid">
+    <div class="container">
         <div class="jumbotron text-center">
             <h2>Контакты</h2>
             <p>Вы можете позвонить нам по указанным телефонам.<br />Написать нам на почту или отправить сообщение через сайт.</p>
         </div>
+    </div>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d35673.333210687946!2d92.86120790528024!3d56.02588821575081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1421052617396" width="100%" height="400"></iframe>
@@ -36,7 +38,7 @@
                                 {{ form.message }}
                             </div>
                         </div>
-                        <input class="btn btn-info btn-primary btn-md" type="submit" value="Отправить">
+                        <button class="btn btn-info btn-primary btn-md" type="submit">Отправить <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button>
                     </form>
                 </div>
                 <div class="row">

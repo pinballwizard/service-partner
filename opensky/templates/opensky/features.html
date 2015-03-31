@@ -1,23 +1,26 @@
 {% extends "opensky/template.html" %}
 {% block body %}
-    <div class="container-fluid">
+    <div class="container features-section">
         <div class="row">
             <div class="col-md-4">
-                <ul class="nav nav-pills nav-stacked">
+                <div class="jumbotron text-center jumb-small">
+                    <h2 class="title">Решения</h2>
+                    <p>Наша компания может предложить Вам индивидуальное <br><b>комплексное решение</b> для Вашего бизнеса</p>
+                </div>
+                <ul class="nav nav-tabs nav-stacked" id="myTab">
                     {% for feature in features %}
-                        <li><a href="#">{{feature.header}}</a></li>
+                        <li><a href="#{{feature.header}}" data-toggle="tab">{{feature.header}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="col-md-8">
-                <div class="row text-center">
-                    {% for feature in features %}
-                        <article class="col-md-4 feature-item">
-                            <h3>{{feature.header}}</h3>
-                            <p>{{feature.text}}</p>
-                        </article>
-                    {% endfor %}
-                </div>
+                    <div class="row">
+                        <div class="tab-content">
+                            {% for feature in features %}
+                                <div class="tab-pane {{forloop.first|yesno:'fade in active,'}}"  id="{{feature.header}}">{{feature.text}}</div>
+                            {% endfor %}
+                        </div>
+                    </div>
             </div>
         </div>
     </div>

@@ -36,3 +36,7 @@ class BlogAdmin(admin.ModelAdmin):
 @admin.register(SocialWidget)
 class SocialWidgetAdmin(admin.ModelAdmin):
     list_display = ('mark', 'logo', 'url')
+
+@admin.register(Price)
+class PriceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')

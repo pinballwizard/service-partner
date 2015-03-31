@@ -30,7 +30,7 @@ class CarouselImage(models.Model):
 class Feature(models.Model):
     image = models.ImageField("Изображение")
     header = models.CharField("Заголовок", max_length=100)
-    text = models.CharField("Описание", max_length=100)
+    text = models.CharField("Описание", max_length=10000)
     def __str__(self):
         return self.header
 
@@ -76,3 +76,10 @@ class SocialWidget(models.Model):
     url = models.URLField("Ссылка")
     def __str__(self):
         return self.mark
+
+
+class Price(models.Model):
+    name = models.CharField("Название", max_length=30)
+    price = models.IntegerField("Цена", max_length=6)
+    def __str__(self):
+        return self.name

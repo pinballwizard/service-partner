@@ -79,7 +79,7 @@ def features(request):
 
 def pricing(request):
     data = {
-        'features': Feature.objects.all(),
+        'prices': Price.objects.all(),
     }
     return render(request, 'opensky/pricing.html', data)
 

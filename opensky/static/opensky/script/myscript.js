@@ -13,4 +13,12 @@ $(document).ready(function() {
                 type: 'over'
         }
     }});
+    $(function () {
+        $('#myTab a:first').tab('show');
+    });
+    //var active = $("li");
+    //active.click(function(){
+    //    //active.removeClass("active");
+    //    $(this).addClass("active");
+    //});
 });
