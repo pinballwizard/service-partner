@@ -17,6 +17,7 @@ body {
     text-align: center;
     color: #ffffff;
     font-family: 'Jura', sans-serif;
+    font-weight: bold;
 }
 
 .navbar-brand{
@@ -46,6 +47,11 @@ body {
 }
 li>a{
     font-size: 18px;
+}
+
+.dropdown-menu{
+    background: #FFFFFF;
+    opacity: 1;
 }
 
 .icon-bar{
@@ -150,12 +156,14 @@ iframe{
     padding: 0;
     height: 150px;
 }
+
 .nav-tabs>li.active>a,
 .nav-tabs>li.active>a:focus,
 .nav-tabs>li.active>a:hover{
     border: none;
     background-color: #EBEEF2;
 }
+
 #myTab{
     border-bottom: none;
 }
@@ -203,4 +211,45 @@ td:last-child{
 .tw:hover,
 .tw:active{
     background-position: -53px -10px;
+}
+.li{
+    background-position: -95px -55px;
+}
+.li:hover,
+.li:active{
+    background-position: -95px -10px;
+}
+.yt{
+    background-position: -220px -55px;
+}
+.yt:hover,
+.yt:active{
+    background-position: -220px -10px;
+}
+.in{
+    background-position: -261px -55px;
+}
+.in:hover,
+.in:active{
+    background-position: -261px -10px;
+}
+.btn,
+.nav-tabs{
+    outline: none !important;
+}
+.main-header{
+    display: inline-block;
+    width: inherit;
+    font-family: 'Jura', sans-serif;
+}
+.main-header:not(last-child){
+    vertical-align: middle;
+}
+.main-header:last-child{
+    font-size: 22px;
+    font-weight: normal;
+    text-align: right;
+    position: absolute;
+    left: 30px;
+    top:30px;
 }

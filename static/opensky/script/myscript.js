@@ -16,9 +16,13 @@ $(document).ready(function() {
     $(function () {
         $('#myTab a:first').tab('show');
     });
-    //var active = $("li");
-    //active.click(function(){
-    //    //active.removeClass("active");
-    //    $(this).addClass("active");
-    //});
+    $("#myNavbar").find("li").not(".dropdown").children("a").click(function(){
+        $(".nav").find("li").removeClass("active");
+        $(this).parent().addClass("active");
+    });
+    var onclick =  $("#myNavbar").find("a").filter(function(){
+        return $(this).attr("href") === window.location.pathname;
+    })
+    onclick.parent().addClass("active");
+    onclick.parents(".dropdown").addClass("active");
 });
