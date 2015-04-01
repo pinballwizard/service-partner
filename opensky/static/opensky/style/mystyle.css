@@ -150,12 +150,14 @@ iframe{
     padding: 0;
     height: 150px;
 }
+
 .nav-tabs>li.active>a,
 .nav-tabs>li.active>a:focus,
 .nav-tabs>li.active>a:hover{
     border: none;
     background-color: #EBEEF2;
 }
+
 #myTab{
     border-bottom: none;
 }

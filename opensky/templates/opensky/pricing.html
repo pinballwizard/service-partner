@@ -17,8 +17,8 @@
                         </tr>
                         {% for item in prices %}
                             <tr>
-                                <td>{{item.name}}</td>
-                                <td>{{item.price}}</td>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.price }}</td>
                             </tr>
                         {% endfor %}
                     </table>
@@ -28,8 +28,7 @@
                 <div class="alert alert-info text-center">
                     Еще больше информации о скидках и
                     акциях нашей компании Вы можете узнать, позвонив по телефонам<br>
-                    <b>999-99-99<br>
-                    999-00-00</b><br>
+                    {{ office.phone|linebreaks }}
                     или связавшись с нами через <b><a href="{% url 'contacts' %}">сайт</a></b>
                 </div>
             </div>

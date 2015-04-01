@@ -84,9 +84,9 @@ USE_TZ = True
 
 # STATICFILES_DIRS = '../static/'
 STATIC_URL = '/static/'
-# STATIC_ROOT = '/static/'
-MEDIA_URL = '/images/'
-MEDIA_ROOT = 'images/'
+STATIC_ROOT = 'static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'media/'
 
 
 #Email settings

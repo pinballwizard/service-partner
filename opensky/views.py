@@ -59,6 +59,8 @@ class MailForm(forms.Form):
 def index(request):
     data = {
         'carousel_images': CarouselImage.objects.all(),
+        'widgets': SocialWidget.objects.all(),
+        'office': Office.objects.get(pk=1),
     }
     return render(request, 'opensky/index.html', data)
 
@@ -66,6 +68,8 @@ def index(request):
 def equipment(request):
     data = {
         'equipments': Equipment.objects.all(),
+        'widgets': SocialWidget.objects.all(),
+        'office': Office.objects.get(pk=1),
     }
     return render(request, 'opensky/equipment.html', data)
 
@@ -73,6 +77,8 @@ def equipment(request):
 def features(request):
     data = {
         'features': Feature.objects.all(),
+        'widgets': SocialWidget.objects.all(),
+        'office': Office.objects.get(pk=1),
     }
     return render(request, 'opensky/features.html', data)
 
@@ -80,6 +86,8 @@ def features(request):
 def pricing(request):
     data = {
         'prices': Price.objects.all(),
+        'widgets': SocialWidget.objects.all(),
+        'office': Office.objects.get(pk=1),
     }
     return render(request, 'opensky/pricing.html', data)
 
@@ -87,6 +95,8 @@ def pricing(request):
 def services(request):
     data = {
         'services': Service.objects.all(),
+        'widgets': SocialWidget.objects.all(),
+        'office': Office.objects.get(pk=1),
     }
     return render(request, 'opensky/services.html', data)
 
@@ -94,6 +104,8 @@ def services(request):
 def company(request):
     data = {
         'partners': Partner.objects.all(),
+        'widgets': SocialWidget.objects.all(),
+        'office': Office.objects.get(pk=1),
         'about_company': Blog.objects.get(mark="about_company"),
     }
     return render(request, 'opensky/company.html', data)
@@ -102,6 +114,8 @@ def company(request):
 def workers(request):
     data = {
         'workers': Worker.objects.all(),
+        'widgets': SocialWidget.objects.all(),
+        'office': Office.objects.get(pk=1),
     }
     return render(request, 'opensky/workers.html', data)
 
@@ -110,6 +124,10 @@ def contacts(request):
     office = Office.objects.get(pk=1)
     office_mail = office.email
     server_mail = 'ooo.service-partner@yandex.ru'
+    data = {
+        'office': office,
+        'widgets': SocialWidget.objects.all(),
+    }
     if request.method == 'POST':
         form = MailForm(request.POST)
         if form.is_valid():
@@ -119,16 +137,10 @@ def contacts(request):
             message = form.cleaned_data['message']
             s = ":".join([sender, email, subj])
             mail.send_mail(s, message, server_mail, [office_mail], fail_silently=False)
-            data = {
-                'form': form,
-                'office': office,
-                'thank': True
-            }
+            data['form'] = form
+            data['thank'] = True
             return render(request, 'opensky/contacts.html', data)
     else:
-        form = MailForm()
-    data = {
-        'form': form,
-        'office': office
-    }
+        data['form'] = MailForm()
+        data['thank'] = False
     return render(request, 'opensky/contacts.html', data)

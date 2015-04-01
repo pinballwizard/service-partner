@@ -5,11 +5,15 @@
             <div class="col-md-4">
                 <div class="jumbotron text-center jumb-small">
                     <h2 class="title">Решения</h2>
-                    <p>Наша компания может предложить Вам индивидуальное <br><b>комплексное решение</b> для Вашего бизнеса</p>
+                    <p>
+                        Наша компания может предложить Вам индивидуальное <br>
+                        <b>комплексное решение</b>
+                        для Вашего бизнеса
+                    </p>
                 </div>
                 <ul class="nav nav-tabs nav-stacked" id="myTab">
                     {% for feature in features %}
-                        <li><a href="#{{feature.header}}" data-toggle="tab">{{feature.header}}</a></li>
+                        <li><a href="#{{feature.pk}}" data-toggle="tab">{{feature.header}}</a></li>
                     {% endfor %}
                 </ul>
             </div>
@@ -17,7 +21,7 @@
                     <div class="row">
                         <div class="tab-content">
                             {% for feature in features %}
-                                <div class="tab-pane {{forloop.first|yesno:'fade in active,'}}"  id="{{feature.header}}">{{feature.text}}</div>
+                                <div class="tab-pane {{forloop.first|yesno:'fade in active,'}}"  id="{{feature.pk}}">{{feature.text}}</div>
                             {% endfor %}
                         </div>
                     </div>

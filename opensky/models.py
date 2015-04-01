@@ -71,11 +71,19 @@ class Office(models.Model):
 
 
 class SocialWidget(models.Model):
-    mark = models.CharField("Название", max_length=20)
-    logo = models.ImageField("Логотип")
-    url = models.URLField("Ссылка")
+    SOCIAL_CHOICES = (
+        ('vk', 'Вконтакте'),
+        ('ok', 'Одноклассники'),
+        ('fb', 'Facebook'),
+        ('tw', 'Twitter'),
+        ('li', 'LinkedIn'),
+        ('yt', 'YouTube'),
+        ('in', 'Instagram'),
+    )
+    name = models.CharField("Название", max_length=2, choices=SOCIAL_CHOICES)
+    url = models.URLField("Ссылка", blank=True)
     def __str__(self):
-        return self.mark
+        return self.name
 
 
 class Price(models.Model):

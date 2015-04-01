@@ -7,7 +7,7 @@ from opensky import views
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='home'),
-    url(r'^features', views.features, name='features'),
+    url(r'^feature', views.features, name='features'),
     url(r'^pricing', views.pricing, name='pricing'),
     url(r'^services', views.services, name='services'),
     url(r'^contacts', views.contacts, name='contacts'),

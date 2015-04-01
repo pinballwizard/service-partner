@@ -1,0 +1,206 @@
+html{
+    min-height: 100%;
+    position: relative;
+}
+body {
+    min-height: 100%;
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    line-height: 21px;
+    color: #404040;
+    margin-bottom: 80px;
+}
+
+.header {
+    padding-top: 60px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Jura', sans-serif;
+}
+
+.navbar-brand{
+    font-weight: bold;
+}
+.navbar-default .navbar-brand,
+.navbar-brand:hover{
+    color: #FFFFFF !important;
+}
+.navbar-default{
+    background-color: #548DBF;
+    border-bottom: none;
+}
+.navbar-default .navbar-nav>li>a {
+    color:#FFFFFF;
+    font-size: 18px;
+}
+.navbar-default .navbar-nav:last-child{
+    margin-right: 50px;
+}
+.nav>li:hover,
+.nav>li:active{
+    background-color: #FFFFFF !important;
+}
+.dropdown-menu{
+    background-color: #FFFFFF;
+}
+li>a{
+    font-size: 18px;
+}
+
+.icon-bar{
+    background-color: #FFFFFF !important;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #EBEEF2;
+}
+.footer>.container,
+.footer>.container>.row,
+.footer>.container>.row>div{
+    height: 100%;
+    background-color: #EBEEF2;
+}
+
+.footer>.container>.row>div:last-child{
+    padding: 15px 0;
+}
+.footer>.container>.row>div{
+    font-size: 12px;
+}
+
+.carousel-section {
+    background-color: #EBEEF2;
+}
+.carousel-inner>.item>img{
+    margin: auto;
+}
+.carousel-caption{
+    color: #404040;
+    text-shadow: none;
+}
+
+.carousel-control.right,
+.carousel-control.left{
+    background-image: none;
+}
+
+.glyphicon-chevron-left,
+.glyphicon-chevron-right{
+    color: #548DBF;
+}
+.carousel-indicators>li{
+    background-color: #548DBF;
+}
+
+.carousel-indicators .active{
+    background-color: #204d74;
+}
+
+.jumbotron{
+    background-color: #96A7C4;
+    color: #FFFFFF;
+}
+.jumbotron>p{
+    font-size: 16px;
+}
+
+.features-section {
+    height: 100%;
+}
+.features-section>.row>.col-md-8{
+    padding-left: 3%;
+    background-color: #EBEEF2;
+}
+
+.product{
+    height: 100%;
+}
+
+.fancybox-title-over-wrap {
+    width: 100%;
+    padding: 0;
+}
+
+.fancybox-title-over-wrap > div {
+    padding: 10px;
+}
+
+iframe{
+    border: none;
+}
+
+.panel-primary{
+    height: auto;
+    min-height: 270px;
+}
+.panel-body>figure{
+    text-align:center;
+}
+
+.rights{
+    float: right;
+    font-weight: bold;
+}
+
+.jumb-small{
+    padding: 0;
+    height: 150px;
+}
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover{
+    border: none;
+    background-color: #EBEEF2;
+}
+#myTab{
+    border-bottom: none;
+}
+
+button[type="submit"]{
+    margin-top: 10px;
+}
+
+th:last-child,
+td:last-child{
+    text-align: right;
+}
+
+.s-l{
+    display: inline-block;
+    height: 33px;
+    width: 33px;
+    background: url('../images/ikonki-small.png') no-repeat;
+    cursor: pointer;
+}
+.vk{
+    background-position: -137px -55px;
+}
+.vk:hover,
+.vk:active{
+    background-position: -137px -10px;
+}
+.ok{
+    background-position: -178px -55px;
+}
+.ok:hover,
+.ok:active{
+    background-position: -178px -10px;
+}
+.fb{
+    background-position: -12px -55px;
+}
+.fb:hover,
+.fb:active{
+    background-position: -12px -10px;
+}
+.tw{
+    background-position: -53px -55px;
+}
+.tw:hover,
+.tw:active{
+    background-position: -53px -10px;
+}

@@ -13,14 +13,14 @@
                         {% for image in carousel_images %}
                             {% if image == carousel_images|first %}
                             <div class="item active">
-                                <img src="{{ MEDIA_URL}}{{image.image}}" height="500" width="500"/>
+                                <img src="{{MEDIA_URL}}{{image.image}}" height="500" width="500"/>
                                 <div class="carousel-caption">
                                     <h2>{{ image.text }}</h2>
                                 </div>
                             </div>
                             {% else %}
                             <div class="item">
-                                <img src="{{ MEDIA_URL}}{{image.image}}" height="500" width="500"/>
+                                <img src="{{MEDIA_URL}}{{image.image}}" height="500" width="500"/>
                                 <div class="carousel-caption">
                                     <h2>{{ image.text }}</h2>
                                 </div>

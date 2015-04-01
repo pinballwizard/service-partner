@@ -13,9 +13,9 @@
             </div>
             <div class="col-md-6 text-center">
                 <address>
-                    Адрес: {{office.address}}<br/>
-                    Телефон: {{office.phone}}<br/>
-                    Email: <a href="mailto:{{office.email}}">{{office.email}}</a>
+                    Адрес: {{ office.address }}<br/>
+                    Телефон: {{ office.phone }}<br/>
+                    Email: {{ office.email|urlize }}
                 </address>
                 <div class="row">
                     <form action="{% url 'contacts' %}" role="form" method="post">
