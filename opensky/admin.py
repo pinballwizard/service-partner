@@ -27,7 +27,7 @@ class WorkerAdmin(admin.ModelAdmin):
 
 @admin.register(Office)
 class OfficeAdmin(admin.ModelAdmin):
-    list_display = ('address', 'email')
+    list_display = ('address', 'email', 'phone')
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
