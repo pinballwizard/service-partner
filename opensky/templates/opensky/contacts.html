@@ -13,7 +13,7 @@
             <div class="col-md-6 text-center">
                 <address>
                     Адрес: {{ office.address }}<br/>
-                    Телефон: {{ office.phone }}<br/>
+                    Телефон: {{ office.phone|join:"," }}<br/>
                     Email: {{ office.email|urlize }}
                 </address>
                 <div class="row">

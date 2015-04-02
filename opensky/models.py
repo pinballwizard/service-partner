@@ -1,13 +1,12 @@
 from django.db import models
 
-
 class Worker(models.Model):
     name = models.CharField("Имя", max_length=30)
     last_name = models.CharField("Фамилия", max_length=30)
     birth_day = models.DateField("День рождения")
     email = models.EmailField("Почта")
     photo = models.ImageField("Фотография")
-    phone = models.CharField("Телефон", max_length=10)
+    phone = models.CharField("Телефон", max_length=100)
     def __str__(self):
         return self.name + " " + self.last_name
 
@@ -65,9 +64,11 @@ class Equipment(models.Model):
 class Office(models.Model):
     address = models.CharField("Контактный адресс", max_length=50)
     email = models.EmailField("Контактная почта", max_length=50)
-    phone = models.CharField("Контактный телефон", max_length=100)
+    phone_str = models.CharField("Контактный телефон (через ;)", max_length=100)
     latitude = models.CharField("Широта", max_length=10)
     longitude = models.CharField("Долгота", max_length=10)
+    def phone(self):
+        return self.phone_str.split(';')
 
 
 class SocialWidget(models.Model):

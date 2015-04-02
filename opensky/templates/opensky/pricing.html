@@ -30,7 +30,7 @@
                 <div class="alert alert-info text-center">
                     Еще больше информации о скидках и
                     акциях нашей компании Вы можете узнать, позвонив по телефонам<br>
-                    {{ office.phone|linebreaks }}
+                    {{ office.phone|join:"<br>" }}<br>
                     или связавшись с нами через <b><a href="{% url 'contacts' %}">сайт</a></b>
                 </div>
             </div>
