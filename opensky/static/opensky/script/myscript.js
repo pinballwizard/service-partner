@@ -26,4 +26,18 @@ $(document).ready(function() {
     });
     afterClick.parent().addClass("active");
     afterClick.parents(".dropdown").addClass("active");
+
+//    Google maps
+    var apiKey = 'AIzaSyDkTrVxNe0ZMrZ0FBNGtO8n0MEyrpB07vI';
+    initialize();
 });
+
+
+function initialize() {
+    var mapOptions = {
+        center: new google.maps.LatLng(-34.397, 150.644),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.TERRAIN
+    };
+    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+}

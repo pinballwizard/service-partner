@@ -8,12 +8,12 @@ class Worker(models.Model):
     photo = models.ImageField("Фотография")
     phone = models.CharField("Телефон", max_length=100)
     def __str__(self):
-        return self.name + " " + self.last_name
+        return " ".join((self.name, self.last_name))
 
 
 class Blog(models.Model):
     mark = models.CharField("Название", max_length=20, unique=True)
-    text = models.CharField("Текст", max_length=500)
+    text = models.TextField("Текст", max_length=20000)
     def __str__(self):
         return self.mark
 
@@ -21,7 +21,7 @@ class Blog(models.Model):
 class CarouselImage(models.Model):
     image = models.ImageField("Картинка", upload_to='carousel')
     text = models.CharField("Подпись", max_length=100)
-    position = models.IntegerField("Позиция", max_length=1, unique=True, blank=False)
+    position = models.IntegerField("Позиция", unique=True, blank=False)
     def __str__(self):
         return self.text
 
@@ -29,7 +29,7 @@ class CarouselImage(models.Model):
 class Feature(models.Model):
     image = models.ImageField("Изображение")
     header = models.CharField("Заголовок", max_length=100)
-    text = models.CharField("Описание", max_length=10000)
+    text = models.TextField("Описание", max_length=10000)
     def __str__(self):
         return self.header
 
@@ -37,14 +37,14 @@ class Feature(models.Model):
 class Service(models.Model):
     image = models.ImageField("Изображение")
     header = models.CharField("Заголовок", max_length=100)
-    text = models.CharField("Описание", max_length=100)
+    text = models.TextField("Описание", max_length=1000)
     def __str__(self):
         return self.header
 
 
 class Partner(models.Model):
     name = models.CharField("Название", max_length=20, unique=True)
-    logo = models.ImageField("Логотип", max_length=100)
+    logo = models.ImageField("Логотип")
     url = models.URLField("Ссылка на сайт")
     def __str__(self):
         return self.name
@@ -52,11 +52,11 @@ class Partner(models.Model):
 
 class Equipment(models.Model):
     name = models.CharField("Наименование", max_length=30, unique=True)
-    description = models.CharField("Описание", max_length=200)
+    description = models.TextField("Описание", max_length=200)
     manufacturer = models.CharField("Производитель", max_length=30)
-    price = models.IntegerField("Цена", max_length=10)
+    price = models.IntegerField("Цена")
     image = models.ImageField("Изображение")
-    count = models.IntegerField("Количество", max_length=2)
+    count = models.IntegerField("Количество")
     def __str__(self):
         return self.name
 
@@ -89,6 +89,15 @@ class SocialWidget(models.Model):
 
 class Price(models.Model):
     name = models.CharField("Название", max_length=30)
-    price = models.IntegerField("Цена", max_length=6)
+    price = models.IntegerField("Цена")
     def __str__(self):
         return self.name
+
+
+class Mail(models.Model):
+    sender = models.CharField("Отправитель", max_length=30)
+    email = models.EmailField("Email", max_length=30)
+    subject = models.CharField("Тема", max_length=50)
+    message = models.TextField("Сообщение", max_length=500)
+    def __str__(self):
+        return " ".join((self.sender, self.subject))
