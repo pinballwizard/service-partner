@@ -39,7 +39,9 @@ body {
     margin-right: 50px;
 }
 .nav>li:hover,
-.nav>li:active{
+.nav>li:active,
+.nav>.active>a,
+.nav>.open>a{
     background-color: #FFFFFF !important;
 }
 .dropdown-menu{
@@ -250,6 +252,6 @@ td:last-child{
     font-weight: normal;
     text-align: right;
     position: absolute;
-    left: 30px;
+    right: 30px;
     top:30px;
 }
