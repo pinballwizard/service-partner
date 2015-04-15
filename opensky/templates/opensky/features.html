@@ -19,19 +19,15 @@
                 </ul>
             </div>
             <div class="col-md-8">
-                <div class="row text-center">
-                    <div class="tab-content">
-                        {% for feature in features %}
-                            <div class="tab-pane {{forloop.first|yesno:'fade in active,'}}"  id="{{feature.pk}}">
-                                <div class="row">
-                                    <img class="img-circle" src="{{MEDIA_URL}}{{feature.image}}" width="140px" height="140px">
-                                </div>
-                                <div class="row">
-                                    {{feature.text}}
-                                </div>
+                <div class="tab-content text-center">
+                    {% for feature in features %}
+                        <div class="tab-pane {{forloop.first|yesno:'fade in active,'}}"  id="{{feature.pk}}">
+                            <div class="container-fluid">
+                                <img class="img-rounded" src="{{MEDIA_URL}}{{feature.image}}" width="50%" height="50%">
                             </div>
-                        {% endfor %}
-                    </div>
+                            {{feature.text}}
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

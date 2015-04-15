@@ -3,7 +3,6 @@ from django import forms
 from opensky.models import *
 from django.core import mail
 from django.http import HttpResponse
-from django.core.mail.backends.smtp import EmailBackend
 
 #Not use
 class MyStyle(forms.Widget):
@@ -13,47 +12,32 @@ class MyStyle(forms.Widget):
               'opensky/bootstrap/js/bootstrap.min.js')
 
 
-class SenderWidget(forms.TextInput):
-    def __init__(self):
-        self.attrs = {
-            'placeholder': 'Ваше имя',
-            'type': 'text',
-            'class': 'form-control',
+class MailForm(forms.ModelForm):
+    class Meta:
+        model = Mail
+        fields = ['sender', 'email', 'subject', 'message']
+        widgets = {
+            'sender': forms.TextInput(attrs={
+                'placeholder': 'Ваше имя',
+                'type': 'text',
+                'class': 'form-control',
+            }),
+            'email': forms.EmailInput(attrs={
+                'placeholder': 'Ваш Email',
+                'type': 'email',
+                'class': 'form-control',
+            }),
+            'subject': forms.TextInput(attrs={
+                'placeholder': 'Введите тему',
+                'type': 'text',
+                'class': 'form-control',
+            }),
+            'message': forms.Textarea(attrs={
+                'placeholder': 'Введите сообщение',
+                'type':'text',
+                'class': 'form-control',
+            }),
         }
-
-
-class SubjWidget(forms.TextInput):
-    def __init__(self):
-        self.attrs = {
-            'placeholder': 'Введите тему',
-            'type': 'text',
-            'class': 'form-control',
-            }
-
-
-class EmailWidget(forms.EmailInput):
-    def __init__(self):
-        self.attrs = {
-            'placeholder': 'Ваш Email',
-            'type': 'email',
-            'class': 'form-control',
-        }
-
-
-class MessageWidget(forms.Textarea):
-    def __init__(self):
-        self.attrs = {
-            'placeholder': 'Введите сообщение',
-            'type':'text',
-            'class': 'form-control',
-        }
-
-
-class MailForm(forms.Form):
-    sender = forms.CharField(widget=SenderWidget, max_length=30)
-    email = forms.EmailField(widget=EmailWidget, max_length=30)
-    subj = forms.CharField(widget=SubjWidget, max_length=50)
-    message = forms.CharField(widget=MessageWidget, max_length=500)
 
 
 def index(request):
@@ -131,9 +115,10 @@ def contacts(request):
     if request.method == 'POST':
         form = MailForm(request.POST)
         if form.is_valid():
+            form.save()
             sender = form.cleaned_data['sender']
             email = form.cleaned_data['email']
-            subj = form.cleaned_data['subj']
+            subj = form.cleaned_data['subject']
             message = form.cleaned_data['message']
             s = ":".join([sender, email, subj])
             mail.send_mail(s, message, server_mail, [office_mail], fail_silently=False)

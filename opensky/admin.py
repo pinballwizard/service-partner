@@ -40,3 +40,8 @@ class SocialWidgetAdmin(admin.ModelAdmin):
 @admin.register(Price)
 class PriceAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
+
+@admin.register(Mail)
+class MailAdmin(admin.ModelAdmin):
+    list_display = ('sender', 'email', 'subject')
+    readonly_fields = ('sender', 'email', 'subject', 'message')

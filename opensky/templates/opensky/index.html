@@ -1,8 +1,7 @@
 {% extends "opensky/template.html" %}
 {% load staticfiles %}
 {% block body %}
-<div class="container-fluid">
-    <div class="container">
+<div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="page-header text-center">
@@ -15,13 +14,11 @@
                         </h1>
                     </div>
                     <div class="main-header">
-                        (000) 000-00-00<br>
-                        (000) 000-00-00
+                        {{ office.phone|join:"<br>" }}
                     </div>
                 </div>
             </div>
         </div>
-    </div>
         <div class="row">
             <div class="carousel-section col-md-10 col-md-offset-1">
                 <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -32,21 +29,12 @@
                     </ol>
                     <div class="carousel-inner" role="listbox">
                         {% for image in carousel_images %}
-                            {% if image == carousel_images|first %}
-                            <div class="item active">
-                                <img src="{{MEDIA_URL}}{{image.image}}" height="500" width="500"/>
+                            <div class="item {{forloop.first|yesno:'active,'}}">
+                                <img src="{{MEDIA_URL}}{{image.image}}" height="75%" width="75%"/>
                                 <div class="carousel-caption">
                                     <h2>{{ image.text }}</h2>
                                 </div>
                             </div>
-                            {% else %}
-                            <div class="item">
-                                <img src="{{MEDIA_URL}}{{image.image}}" height="500" width="500"/>
-                                <div class="carousel-caption">
-                                    <h2>{{ image.text }}</h2>
-                                </div>
-                            </div>
-                            {% endif %}
                         {% endfor %}
                     </div>
                     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
