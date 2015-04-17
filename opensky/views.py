@@ -3,19 +3,19 @@ from django import forms
 from opensky.models import *
 from django.core import mail
 from django.http import HttpResponse
-
-#Not use
-class MyStyle(forms.Widget):
-    class Media:
-        css = {'all': ('opensky/bootstrap/css/bootstrap.min.css', )}
-        js = ('opensky/script/jquery-2.1.3.min.js',
-              'opensky/bootstrap/js/bootstrap.min.js')
+from django.utils.translation import ugettext_lazy as _
 
 
 class MailForm(forms.ModelForm):
     class Meta:
         model = Mail
         fields = ['sender', 'email', 'subject', 'message']
+        error_messages = {
+            'sender': {
+                'blank': _("Заполните поле"),
+            },
+        }
+        localized_fields = ('__all__',)
         widgets = {
             'sender': forms.TextInput(attrs={
                 'placeholder': 'Ваше имя',
@@ -36,6 +36,7 @@ class MailForm(forms.ModelForm):
                 'placeholder': 'Введите сообщение',
                 'type':'text',
                 'class': 'form-control',
+                'rows': 5,
             }),
         }
 
@@ -111,11 +112,12 @@ def contacts(request):
     data = {
         'office': office,
         'widgets': SocialWidget.objects.all(),
+        'form': MailForm(),
+        'thank': False,
     }
     if request.method == 'POST':
         form = MailForm(request.POST)
         if form.is_valid():
-            form.save()
             sender = form.cleaned_data['sender']
             email = form.cleaned_data['email']
             subj = form.cleaned_data['subject']
@@ -124,8 +126,7 @@ def contacts(request):
             mail.send_mail(s, message, server_mail, [office_mail], fail_silently=False)
             data['form'] = form
             data['thank'] = True
-            return render(request, 'opensky/contacts.html', data)
-    else:
-        data['form'] = MailForm()
-        data['thank'] = False
+            form.save()
+        else:
+            data['form'] = form
     return render(request, 'opensky/contacts.html', data)

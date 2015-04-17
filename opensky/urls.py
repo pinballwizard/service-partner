@@ -1,9 +1,8 @@
 __author__ = 'pinballwizard'
 
-from django.conf.urls import patterns, include, url
-from django.conf.urls.static import static
-from django.conf import settings
+from django.conf.urls import patterns, url
 from opensky import views
+from django.views.generic import TemplateView
 
 urlpatterns = patterns('',
     url(r'^$', views.index, name='home'),
@@ -14,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^equipment', views.equipment, name='equipment'),
     url(r'^company', views.company, name='company'),
     url(r'^workers', views.workers, name='workers'),
+    url(r'^robot\.txt$', TemplateView.as_view(template_name='robot.txt'), name='robot'),
+    url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml'), name='sitemap'),
 )

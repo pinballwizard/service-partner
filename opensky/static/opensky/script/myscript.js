@@ -1,18 +1,4 @@
 $(document).ready(function() {
-    $(".fancybox").fancybox({
-        afterShow: function() {
-            $(".fancybox-title").wrapInner('<div />').show();
-            $(".fancybox-wrap").hover(function() {
-                $(".fancybox-title").show();
-            }, function() {
-                $(".fancybox-title").hide();
-            });
-        },
-        helpers : {
-            title: {
-                type: 'over'
-        }
-    }});
     $(function () {
         $('#myTab a:first').tab('show');
     });
@@ -27,17 +13,37 @@ $(document).ready(function() {
     afterClick.parent().addClass("active");
     afterClick.parents(".dropdown").addClass("active");
 
-//    Google maps
-    var apiKey = 'AIzaSyDkTrVxNe0ZMrZ0FBNGtO8n0MEyrpB07vI';
-    initialize();
+    $(".modalImage").click(function(){
+        console.log("hello")
+        $(this).siblings(".myModal").modal('show')
+    })
+
+    yandex_map();
+//    google_map();
 });
 
-
-function initialize() {
-    var mapOptions = {
-        center: new google.maps.LatLng(-34.397, 150.644),
-        zoom: 8,
-        mapTypeId: google.maps.MapTypeId.TERRAIN
-    };
-    map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+function yandex_map(){
+    var longitude = $('#map').data('longitude');
+    var latitude = $('#map').data('latitude');
+    var coordinate = [longitude, latitude];
+    ymaps.ready(init);
+    var myMap, myPlacemark;
+    function init(){
+        myMap = new ymaps.Map("map", {
+            center: coordinate,
+            zoom: 12
+        });
+        myPlacemark = new ymaps.Placemark(coordinate);
+        myMap.geoObjects.add(myPlacemark);
+    }
 }
+
+//function google_map() {
+//    var apiKey = 'AIzaSyDkTrVxNe0ZMrZ0FBNGtO8n0MEyrpB07vI';
+//    var mapOptions = {
+//        center: new google.maps.LatLng(56.00394079, 92.85553912),
+//        zoom: 8,
+//        mapTypeId: google.maps.MapTypeId.TERRAIN
+//    };
+//    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+//}

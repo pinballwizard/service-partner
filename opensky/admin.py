@@ -28,6 +28,11 @@ class WorkerAdmin(admin.ModelAdmin):
 @admin.register(Office)
 class OfficeAdmin(admin.ModelAdmin):
     list_display = ('address', 'email', 'phone')
+    readonly_fields = ('latitude', 'longitude')
+
+    def save_model(self, request, obj, form, change):
+        obj.geocode()
+        obj.save()
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
