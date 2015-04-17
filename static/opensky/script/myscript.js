@@ -26,7 +26,6 @@ $(document).ready(function() {
     });
     afterClick.parent().addClass("active");
     afterClick.parents(".dropdown").addClass("active");
-
 //    Google maps
     var apiKey = 'AIzaSyDkTrVxNe0ZMrZ0FBNGtO8n0MEyrpB07vI';
 //    initialize();

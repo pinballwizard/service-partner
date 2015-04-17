@@ -23,43 +23,50 @@
     <title>Сервис-Партнер</title>
 </head>
 <body>
+    {% block header %}
     <header class="header">
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                     <a class="navbar-brand" href="{% url 'home' %}">СЕРВИС-ПАРТНЕР</a>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{% url 'home' %}">Главная</a></li>
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" id="menu1" href="#">
-                                О компании
-                                <span class="caret"></span>
+            <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                        <div class="navbar-header">
+                            <a class="navbar-brand" href="{% url 'home' %}">
+                                <img src="{% static 'opensky/images/logo-small.png' %}" height="40px" width="40px">
+                                СЕРВИС-ПАРТНЕР
                             </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{% url 'company' %}">О компании</a></li>
-                                <li><a href="{% url 'workers' %}">Сотрудники</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                            <ul class="nav navbar-nav">
+                                <li><a href="{% url 'home' %}">Главная</a></li>
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" id="menu1" href="#">
+                                        О компании
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{% url 'company' %}">О компании</a></li>
+                                        <li><a href="{% url 'workers' %}">Сотрудники</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'features' %}">Решения</a></li>
+                                <li><a href="{% url 'equipment' %}">Оборудование</a></li>
+                                <li><a href="{% url 'pricing' %}">Цены</a></li>
+                                <li><a href="{% url 'services' %}">Сервис</a></li>
                             </ul>
-                        </li>
-                        <li><a href="{% url 'features' %}">Решения</a></li>
-                        <li><a href="{% url 'equipment' %}">Оборудование</a></li>
-                        <li><a href="{% url 'pricing' %}">Цены</a></li>
-                        <li><a href="{% url 'services' %}">Услуги</a></li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </header>
+    {% endblock header %}
     {% block body %}
-    {% endblock %}
+    {% endblock body %}
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -75,7 +82,8 @@
                     {% endfor %}
                 </div>
                 <div class="col-md-4 text-right">
-                    <span>2015 © ООО "Сервис-Партнер"<br> created by <a href="#">Craby</a><br><br></span>
+                    <span>2015 © ООО "Сервис-Партнер"<br> created by <a href="https://github.com/craby-c">craby</a> &
+                        <a href="https://github.com/pinballwizard">pinballwizard</a><br><br></span>
                 </div>
             </div>
         </div>
