@@ -33,11 +33,6 @@ class MailForm(forms.ModelForm):
     class Meta:
         model = Mail
         fields = ['sender', 'email', 'subject', 'message']
-        error_messages = {
-            'sender': {
-                'blank': _("Заполните поле"),
-            },
-        }
         localized_fields = ('__all__',)
         widgets = {
             'sender': forms.TextInput(attrs={
@@ -64,6 +59,10 @@ class MailForm(forms.ModelForm):
         }
 
 
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=50)
+    search.widget = forms.TextInput(attrs={'placeholder': 'Поиск...', 'class': 'form-control',})
+
 
 def index(request):
     data = {
@@ -79,7 +78,14 @@ def equipment(request):
         'equipments': Equipment.objects.all(),
         'widgets': SocialWidget.objects.all(),
         'office': Office.objects.get(pk=1),
+        'form': SearchForm(),
     }
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            search_str = form.cleaned_data['search']
+            data['equipments'] = Equipment.objects.filter(name__contains=search_str)
+            data['form'] = form
     return render(request, 'opensky/equipment.html', data)
 
 

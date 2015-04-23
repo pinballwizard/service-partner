@@ -1,5 +1,9 @@
 {% extends "opensky/template.html" %}
 {% load staticfiles %}
+{% block meta %}
+<meta name="Description" content="Главная страница компании Сервис-Партнер">
+<meta name="Keywords" content="service-partner, Сервис-Партнер, Сервис Партнер">
+{% endblock meta %}
 {% block header %}
 <div class="bg-header">
     <div class="container">
@@ -15,7 +19,6 @@
                     <div class="media-body">
                         <b>СЕРВИС<br>
                         ПАРТНЕР</b><br>
-                        
                     </div>
                 </div>
             </div>
@@ -31,7 +34,7 @@
 <div class="bg-menu"></div>
 <div class="container">
     <header class="header index-header">
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -43,6 +46,12 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="{% url 'home' %}">Главная</a></li>
+                        <li><a href="{% url 'features' %}">Решения</a></li>
+                        <li><a href="{% url 'equipment' %}">Оборудование</a></li>
+                        <li><a href="{% url 'pricing' %}">Цены</a></li>
+                        <li><a href="{% url 'services' %}">Услуги</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" id="menu1" href="#">
                                 О компании
@@ -55,10 +64,6 @@
                                 <li><a href="{% url 'contacts' %}">Контакты</a></li>
                             </ul>
                         </li>
-                        <li><a href="{% url 'features' %}">Решения</a></li>
-                        <li><a href="{% url 'equipment' %}">Оборудование</a></li>
-                        <li><a href="{% url 'pricing' %}">Цены</a></li>
-                        <li><a href="{% url 'services' %}">Услуги</a></li>
                     </ul>
                 </div>
             </div>
@@ -79,7 +84,7 @@
                 <div class="carousel-inner" role="listbox">
                     {% for image in carousel_images %}
                         <div class="item {{forloop.first|yesno:'active,'}}">
-                            <img src="{{MEDIA_URL}}{{image.image}}" height="75%" width="75%"/>
+                            <img src="{{MEDIA_URL}}{{image.image}}" height="85%" width="85%"/>
                             <div class="carousel-caption">
                                 <h2>{{ image.text }}</h2>
                             </div>

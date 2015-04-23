@@ -1,4 +1,7 @@
 {% extends "opensky/template.html" %}
+{% block meta %}
+    <meta name="Description" content="Контакты компании Сервис-Партнер">
+{% endblock meta %}
 {% block body %}
     <div class="page-header text-center">
         <h3>Контакты <br>
@@ -41,7 +44,7 @@
                                 {{ form.message }}
                             </div>
                         </div>
-                        <button class="btn btn-info btn-primary btn-md" type="submit">Отправить
+                        <button class="btn btn-info btn-primary btn-md contact-btn" type="submit">Отправить
                             <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
                         </button>
                     </form>
