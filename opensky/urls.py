@@ -13,6 +13,6 @@ urlpatterns = patterns('',
     url(r'^equipment', views.equipment, name='equipment'),
     url(r'^company', views.company, name='company'),
     url(r'^workers', views.workers, name='workers'),
-    url(r'^robot\.txt$', TemplateView.as_view(template_name='robot.txt'), name='robot'),
-    url(r'^sitemap\.xml$', TemplateView.as_view(template_name='sitemap.xml'), name='sitemap'),
+    url(r'^robots.txt$', TemplateView.as_view(template_name='opensky/robots.txt'), name='robots'),
+    url(r'^sitemap.xml$', TemplateView.as_view(template_name='opensky/sitemap.xml'), name='sitemap'),
 )

@@ -7,6 +7,29 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class MailForm(forms.ModelForm):
+    color = {}
+    def clean(self):
+        if self.cleaned_data.get('sender'):
+            self.color['sender'] = 'has-success'
+        else:
+            self.color['sender'] = 'has-error'
+
+        if self.cleaned_data.get('email'):
+            self.color['email'] = 'has-success'
+        else:
+            self.color['email'] = 'has-error'
+
+        if self.cleaned_data.get('subject'):
+            self.color['subject'] = 'has-success'
+        else:
+            self.color['subject'] = 'has-error'
+
+        if self.cleaned_data.get('message'):
+            self.color['message'] = 'has-success'
+        else:
+            self.color['message'] = 'has-error'
+
+
     class Meta:
         model = Mail
         fields = ['sender', 'email', 'subject', 'message']
@@ -39,6 +62,7 @@ class MailForm(forms.ModelForm):
                 'rows': 5,
             }),
         }
+
 
 
 def index(request):
@@ -114,9 +138,12 @@ def contacts(request):
         'widgets': SocialWidget.objects.all(),
         'form': MailForm(),
         'thank': False,
+        'color': {},
     }
     if request.method == 'POST':
         form = MailForm(request.POST)
+        form.full_clean()
+        data['color'] = form.color
         if form.is_valid():
             sender = form.cleaned_data['sender']
             email = form.cleaned_data['email']
