@@ -1,4 +1,7 @@
 {% extends "opensky/template.html" %}
+{% block meta %}
+    <meta name="Description" content="Контакты компании Сервис-Партнер">
+{% endblock meta %}
 {% block body %}
     <div class="page-header text-center">
         <h3>Контакты <br>
@@ -18,27 +21,32 @@
                 </address>
                 <div class="row">
                     <form action="{% url 'contacts' %}" role="form" method="post">
-                    {% csrf_token %}
-                    {{ form.non_field_errors }}
-                    <h4>Написать нам <span class="glyphicon glyphicon-pencil" aria-hidden></span></h4>
+                        <h4>Написать нам <span class="glyphicon glyphicon-pencil"></span></h4>
+                        {% csrf_token %}
+                        {{ form.non_field_errors }}
                         <div class="col-md-6">
-                            {% for field in form %}
-                                {% if field.name != 'message' %}
-                                    <div class="form-group fieldWrapper">
-                                        {{ field.errors }}
-                                        {{ field }}
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
+                            <div class="form-group {{ color.sender }} fieldWrapper">
+                                {{ form.sender.errors }}
+                                {{ form.sender }}
+                            </div>
+                            <div class="form-group {{ color.email }} fieldWrapper">
+                                {{ form.email.errors }}
+                                {{ form.email }}
+                            </div>
+                            <div class="form-group {{ color.subject }} fieldWrapper">
+                                {{ form.subject.errors }}
+                                {{ form.subject }}
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="fieldWrapper">
+                            <div class="form-group {{ color.message }} fieldWrapper">
                                 {{ form.message.errors }}
                                 {{ form.message }}
                             </div>
                         </div>
-                        <button class="btn btn-info btn-primary btn-md" type="submit">Отправить
-                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></button>
+                        <button class="btn btn-info btn-primary btn-md contact-btn" type="submit">Отправить
+                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        </button>
                     </form>
                 </div>
                 <div class="row">

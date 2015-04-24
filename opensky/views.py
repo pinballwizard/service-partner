@@ -7,14 +7,32 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class MailForm(forms.ModelForm):
+    color = {}
+    def clean(self):
+        if self.cleaned_data.get('sender'):
+            self.color['sender'] = 'has-success'
+        else:
+            self.color['sender'] = 'has-error'
+
+        if self.cleaned_data.get('email'):
+            self.color['email'] = 'has-success'
+        else:
+            self.color['email'] = 'has-error'
+
+        if self.cleaned_data.get('subject'):
+            self.color['subject'] = 'has-success'
+        else:
+            self.color['subject'] = 'has-error'
+
+        if self.cleaned_data.get('message'):
+            self.color['message'] = 'has-success'
+        else:
+            self.color['message'] = 'has-error'
+
+
     class Meta:
         model = Mail
         fields = ['sender', 'email', 'subject', 'message']
-        error_messages = {
-            'sender': {
-                'blank': _("Заполните поле"),
-            },
-        }
         localized_fields = ('__all__',)
         widgets = {
             'sender': forms.TextInput(attrs={
@@ -41,6 +59,11 @@ class MailForm(forms.ModelForm):
         }
 
 
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=50)
+    search.widget = forms.TextInput(attrs={'placeholder': 'Поиск...', 'class': 'form-control',})
+
+
 def index(request):
     data = {
         'carousel_images': CarouselImage.objects.all(),
@@ -55,7 +78,14 @@ def equipment(request):
         'equipments': Equipment.objects.all(),
         'widgets': SocialWidget.objects.all(),
         'office': Office.objects.get(pk=1),
+        'form': SearchForm(),
     }
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        if form.is_valid():
+            search_str = form.cleaned_data['search']
+            data['equipments'] = Equipment.objects.filter(name__contains=search_str)
+            data['form'] = form
     return render(request, 'opensky/equipment.html', data)
 
 
@@ -114,9 +144,12 @@ def contacts(request):
         'widgets': SocialWidget.objects.all(),
         'form': MailForm(),
         'thank': False,
+        'color': {},
     }
     if request.method == 'POST':
         form = MailForm(request.POST)
+        form.full_clean()
+        data['color'] = form.color
         if form.is_valid():
             sender = form.cleaned_data['sender']
             email = form.cleaned_data['email']

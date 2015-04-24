@@ -1,4 +1,8 @@
 {% extends "opensky/template.html" %}
+{% block meta %}
+    <meta name="Description" content="Комплексные решения и проекты компании Сервис-Партнер">
+    <meta name="Keywords" content="{% for feature in features %}{{ feature.header }},{% endfor %}">
+{% endblock meta %}
 {% block body %}
     <div class="container features-section">
         <div class="row">

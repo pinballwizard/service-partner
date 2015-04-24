@@ -1,4 +1,8 @@
 {% extends "opensky/template.html" %}
+{% block meta %}
+    <meta name="Description" content="Партнеры и описание компании Сервис-Партнер">
+    <meta name="Keywords" content="{% for partner in partners %}{{ partner.name }},{% endfor %}">
+{% endblock meta %}
 {% block body %}
     <div class="container text-center">
         <div class="row">

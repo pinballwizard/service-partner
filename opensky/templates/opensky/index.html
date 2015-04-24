@@ -1,27 +1,29 @@
 {% extends "opensky/template.html" %}
 {% load staticfiles %}
+{% block meta %}
+<meta name="Description" content="Главная страница компании Сервис-Партнер">
+<meta name="Keywords" content="service-partner, Сервис-Партнер, Сервис Партнер">
+{% endblock meta %}
 {% block header %}
 <div class="bg-header">
     <div class="container">
-        <div class="row main-logo text-center">
-            <div class="col-md-4 text-left">
-                <img src="{% static 'opensky/images/28322+.png' %}" height="120px" width="120px">
+        <div class="row main-logo">
+            <div class="col-md-4 text-left hidden-sm hidden-xs">
+                <img src="{% static 'opensky/images/28322+.png' %}" class="img-responsive" height="100px" width="100px">
             </div>
-            <div class="col-md-4">
-                <div class="logotype">
-                    <div class="main-header">
-                        <img src="{% static 'opensky/images/logo.png' %}" height="100px" width="100px">
+            <div class="col-md-4 col-xs-6">
+                <div class="media">
+                    <div class="media-left media-middle hidden-xs">
+                        <img src="{% static 'opensky/images/logo.png' %}" class="media-object" height="100px" width="100px">
                     </div>
-                    <div class="main-header text-left">
-                        <h1><b>СЕРВИС<br>
-                            ПАРТНЕР</b> <br>
-                        </h1>
-                        <span class="sm-text">системы мониторинга транспорта</span>
+                    <div class="media-body">
+                        <b>СЕРВИС<br>
+                        ПАРТНЕР</b><br>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="main-header text-right">
+            <div class="col-md-4 col-xs-6">
+                <div class="phone-header text-right">
                     <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
                     {{ office.phone|join:"<br>" }}
                 </div>
@@ -29,11 +31,11 @@
         </div>
     </div>
 </div>
-<div class="bg-menu">
-</div>
-    <div class="container">
-        <header class="header index-header">
-            <div class="navbar navbar-default" role="navigation">
+<div class="bg-menu"></div>
+<div class="container">
+    <header class="header index-header">
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -44,6 +46,12 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
                         <li><a href="{% url 'home' %}">Главная</a></li>
+                        <li><a href="{% url 'features' %}">Решения</a></li>
+                        <li><a href="{% url 'equipment' %}">Оборудование</a></li>
+                        <li><a href="{% url 'pricing' %}">Цены</a></li>
+                        <li><a href="{% url 'services' %}">Услуги</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" id="menu1" href="#">
                                 О компании
@@ -56,15 +64,12 @@
                                 <li><a href="{% url 'contacts' %}">Контакты</a></li>
                             </ul>
                         </li>
-                        <li><a href="{% url 'features' %}">Решения</a></li>
-                        <li><a href="{% url 'equipment' %}">Оборудование</a></li>
-                        <li><a href="{% url 'pricing' %}">Цены</a></li>
-                        <li><a href="{% url 'services' %}">Услуги</a></li>
                     </ul>
                 </div>
             </div>
-        </header>
-    </div>
+        </nav>
+    </header>
+</div>
 {% endblock header %}
 {% block body %}
 <div class="container">
@@ -79,7 +84,7 @@
                 <div class="carousel-inner" role="listbox">
                     {% for image in carousel_images %}
                         <div class="item {{forloop.first|yesno:'active,'}}">
-                            <img src="{{MEDIA_URL}}{{image.image}}" height="75%" width="75%"/>
+                            <img src="{{MEDIA_URL}}{{image.image}}" height="85%" width="85%"/>
                             <div class="carousel-caption">
                                 <h2>{{ image.text }}</h2>
                             </div>
