@@ -26,8 +26,8 @@ class Blog(models.Model):
 
 class CarouselImage(models.Model):
     image = models.ImageField("Картинка", upload_to='carousel')
-    text = models.CharField("Подпись", max_length=100)
-    position = models.IntegerField("Позиция", unique=True, blank=False)
+    text = models.CharField("Подпись", max_length=100, blank=True)
+    position = models.IntegerField("Позиция", unique=True)
 
     def __str__(self):
         return self.text
@@ -73,17 +73,23 @@ class Equipment(models.Model):
 
 
 class Office(models.Model):
-    address = models.CharField("Контактный адресс", max_length=100)
-    email = models.EmailField("Контактная почта", max_length=50)
-    phone_str = models.CharField("Контактный телефон (через ;)", max_length=100)
+    MAP_CHOICES = (
+        ('yandex#map', 'Схема'),
+        ('yandex#satellite', 'Спутник'),
+        ('yandex#hybrid', 'Гибрид'),
+        ('yandex#publicMap', 'Народная'),
+        ('yandex#publicMapHybrid', 'Народная+Гибрид'),
+    )
+    address = models.CharField("Контактный адресс", max_length=100, blank=True)
+    email = models.EmailField("Контактная почта", max_length=50, blank=True)
+    phone1 = models.CharField("Телефон офиса", max_length=15, blank=True)
+    phone2 = models.CharField("Телефон техподдержки", max_length=15, blank=True)
     latitude = models.CharField("Широта", max_length=10)
     longitude = models.CharField("Долгота", max_length=10)
+    maptype = models.CharField("Тип карты", max_length=30, choices=MAP_CHOICES, default='yandex#map')
 
     def coordinate(self):
         return [self.longitude, self.latitude]
-
-    def phone(self):
-        return self.phone_str.split(';')
 
     def geocode(self):
         url_str = 'https://geocode-maps.yandex.ru/1.x/?format=json&geocode=%s' % self.address
@@ -116,7 +122,7 @@ class SocialWidget(models.Model):
 
 class Price(models.Model):
     name = models.CharField("Название", max_length=30)
-    price = models.IntegerField("Цена")
+    price = models.IntegerField("Цена", blank=True)
 
     def __str__(self):
         return self.name
