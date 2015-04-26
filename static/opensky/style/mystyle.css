@@ -85,11 +85,12 @@ li>a{
 }
 
 .carousel-section {
-    background-color: #EBEEF2;
+    /*background-color: #EBEEF2;*/
 }
 .carousel-inner>.item>img{
     margin: auto;
     padding: 10%;
+    max-width: 75%;
 }
 .carousel-caption{
     color: #204d74;
@@ -128,7 +129,7 @@ li>a{
 
 .features-section>.row>.col-md-8{
     padding-left: 3%;
-    background-color: #EBEEF2;
+    /*background-color: #EBEEF2;*/
 }
 
 .product{
@@ -254,8 +255,8 @@ td:last-child{
     line-height: 30px;
 }
 
-.media-body{
-    font-size: 32px;
+.logo-text{
+    font-size: 42px;
     line-height: normal;
     vertical-align: middle;
     font-family: 'Azoft Sans', sans-serif;
@@ -282,6 +283,9 @@ td:last-child{
     background: #548DBF;
 }
 
-.modal-footer{
+.features-img{
     float: left;
+    padding: 3%;
+    width: 35%;
+    height: 35%;
 }
