@@ -27,7 +27,7 @@ class WorkerAdmin(admin.ModelAdmin):
 
 @admin.register(Office)
 class OfficeAdmin(admin.ModelAdmin):
-    list_display = ('address', 'email', 'phone')
+    list_display = ('address', 'email')
     readonly_fields = ('latitude', 'longitude')
 
     def save_model(self, request, obj, form, change):

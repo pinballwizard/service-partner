@@ -14,24 +14,26 @@ $(document).ready(function() {
     afterClick.parents(".dropdown").addClass("active");
 
     $(".modalImage").click(function(){
-        console.log("hello")
         $(this).siblings(".myModal").modal('show')
-    })
+    });
 
     yandex_map();
 //    google_map();
 });
 
 function yandex_map(){
-    var longitude = $('#map').data('longitude');
-    var latitude = $('#map').data('latitude');
+    var map_obj = $('#map');
+    var longitude = map_obj.data('longitude');
+    var latitude = map_obj.data('latitude');
+    var maptype = map_obj.data('maptype');
     var coordinate = [longitude, latitude];
     ymaps.ready(init);
     var myMap, myPlacemark;
     function init(){
         myMap = new ymaps.Map("map", {
             center: coordinate,
-            zoom: 12
+            zoom: 12,
+            type: maptype
         });
         myPlacemark = new ymaps.Placemark(coordinate);
         myMap.geoObjects.add(myPlacemark);

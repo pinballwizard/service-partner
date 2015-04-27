@@ -2,30 +2,28 @@
 {% load staticfiles %}
 {% block meta %}
 <meta name="Description" content="Главная страница компании Сервис-Партнер">
-<meta name="Keywords" content="service-partner, Сервис-Партнер, Сервис Партнер">
+<meta name="Keywords" content="service-partner. Сервис-Партнер. GPS/Глонасс мониторинг. Контроль расхода топлива. Тахографы. Карты водителей">
 {% endblock meta %}
 {% block header %}
 <div class="bg-header">
     <div class="container">
         <div class="row main-logo">
-            <div class="col-md-4 text-left hidden-sm hidden-xs">
-                <img src="{% static 'opensky/images/28322+.png' %}" class="img-responsive" height="100px" width="100px">
-            </div>
-            <div class="col-md-4 col-xs-6">
+            <div class="col-md-6 text-center text-nowrap">
                 <div class="media">
-                    <div class="media-left media-middle hidden-xs">
-                        <img src="{% static 'opensky/images/logo.png' %}" class="media-object" height="100px" width="100px">
+                    <div class="media-right">
+                        <img class="media-object hidden-sm hidden-xs" src="{% static 'opensky/images/logo.png' %}" height="75px" width="75px">
                     </div>
-                    <div class="media-body">
-                        <b>СЕРВИС<br>
-                        ПАРТНЕР</b><br>
+                    <div class="media-body logo-text">
+                        <strong>СЕРВИС ПАРТНЕР</strong>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-xs-6">
-                <div class="phone-header text-right">
+            <div class="col-md-6">
+                <div class="phone-header text-nowrap text-right">
                     <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
-                    {{ office.phone|join:"<br>" }}
+                    Офис:  {{ office.phone1 }} <br>
+                    <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+                    Тех. поддержка: {{ office.phone2 }}
                 </div>
             </div>
         </div>
@@ -49,7 +47,7 @@
                         <li><a href="{% url 'features' %}">Решения</a></li>
                         <li><a href="{% url 'equipment' %}">Оборудование</a></li>
                         <li><a href="{% url 'pricing' %}">Цены</a></li>
-                        <li><a href="{% url 'services' %}">Услуги</a></li>
+                        <li><a href="{% url 'services' %}">Мониторинг</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="dropdown">
@@ -73,8 +71,7 @@
 {% endblock header %}
 {% block body %}
 <div class="container">
-    <div class="row">
-        <div class="carousel-section col-md-10 col-md-offset-1">
+        <div class="carousel-section">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% for image in carousel_images %}
@@ -84,7 +81,7 @@
                 <div class="carousel-inner" role="listbox">
                     {% for image in carousel_images %}
                         <div class="item {{forloop.first|yesno:'active,'}}">
-                            <img src="{{MEDIA_URL}}{{image.image}}" height="85%" width="85%"/>
+                            <img src="{{image.image.url}}" height="85%" width="85%"/>
                             <div class="carousel-caption">
                                 <h2>{{ image.text }}</h2>
                             </div>
@@ -101,6 +98,5 @@
                 </a>
             </div>
         </div>
-    </div>
 </div>
 {% endblock body %}

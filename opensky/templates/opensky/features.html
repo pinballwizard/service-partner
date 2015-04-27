@@ -18,18 +18,20 @@
                 </div>
                 <ul class="nav nav-tabs nav-stacked" id="myTab">
                     {% for feature in features %}
-                        <li><a href="#{{feature.pk}}" data-toggle="tab">{{feature.header}}</a></li>
+                        <li><a href="#{{feature.pk}}" data-toggle="tab">{{ feature.header }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
             <div class="col-md-8">
-                <div class="tab-content text-center">
+                <div class="tab-content">
                     {% for feature in features %}
                         <div class="tab-pane {{forloop.first|yesno:'fade in active,'}}"  id="{{feature.pk}}">
                             <div class="container-fluid">
-                                <img class="img-rounded" src="{{MEDIA_URL}}{{feature.image}}" width="50%" height="50%">
+                                <img class="img-responsive features-img" src="{{feature.image.url}}">
+                                <div class="text-justify">
+                                    <p>{{ feature.text }}</p>
+                                </div>
                             </div>
-                            {{feature.text}}
                         </div>
                     {% endfor %}
                 </div>
