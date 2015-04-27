@@ -5,87 +5,99 @@
 <meta name="Keywords" content="service-partner. Сервис-Партнер. GPS/Глонасс мониторинг. Контроль расхода топлива. Тахографы. Карты водителей">
 {% endblock meta %}
 {% block header %}
-<div class="bg-header">
-    <div class="container">
-        <div class="row main-logo">
-            <div class="col-md-6 text-center text-nowrap">
-                <div class="media">
-                    <div class="media-right">
-                        <img class="media-object hidden-sm hidden-xs" src="{% static 'opensky/images/logo.png' %}" height="75px" width="75px">
-                    </div>
-                    <div class="media-body logo-text">
-                        <strong>СЕРВИС ПАРТНЕР</strong>
-                    </div>
+<div class="container main-logo">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="media">
+                <div class="media-middle media-left">
+                    <img class="media-object hidden-sm hidden-xs" src="{% static 'opensky/images/logo.png' %}" height="110px" width="110px">
+                </div>
+                <div class="media-body logo-text">
+                    <span>сервис<br>партнер</span><br>
+                    <span class="text-nowrap">
+                        мониторинг транспорта
+                    </span>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="phone-header text-nowrap text-right">
-                    <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
-                    Офис:  {{ office.phone1 }} <br>
-                    <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
-                    Тех. поддержка: {{ office.phone2 }}
+        </div>
+        <div class="col-md-8">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7 col-md-offset-1">
+                        <div class="phone-header text-nowrap">
+                            <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
+                            Офис: <span class="phone-number"> {{ office.phone1 }}</span> <br>
+                            <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                            Тех. поддержка: <span class="phone-number"> {{ office.phone2 }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center enter">
+                        <a href="#">
+                            <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
+                             ВОЙТИ В СИСТЕМУ
+                        </a><br>
+                        для демо-входа<br>
+                        логин: user<br>
+                        пароль: user<br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="{% url 'home' %}">ГЛАВНАЯ</a></li>
+                                    <li><a href="{% url 'features' %}">РЕШЕНИЯ</a></li>
+                                    <li><a href="{% url 'equipment' %}">ОБОРУДОВАНИЕ</a></li>
+                                    <li><a href="{% url 'pricing' %}">ЦЕНЫ</a></li>
+                                    <li><a href="{% url 'services' %}">МОНИТОРИНГ</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle text-nowrap" data-toggle="dropdown" id="menu1" href="#">
+                                            О КОМПАНИИ
+                                            <span class="caret"></span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{% url 'company' %}">О КОМПАНИИ</a></li>
+                                            <li><a href="{% url 'workers' %}">СОТРУДНИКИ</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="{% url 'contacts' %}">КОНТАКТЫ</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="bg-menu"></div>
-<div class="container">
-    <header class="header index-header">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
-                        <li><a href="{% url 'home' %}">Главная</a></li>
-                        <li><a href="{% url 'features' %}">Решения</a></li>
-                        <li><a href="{% url 'equipment' %}">Оборудование</a></li>
-                        <li><a href="{% url 'pricing' %}">Цены</a></li>
-                        <li><a href="{% url 'services' %}">Мониторинг</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" id="menu1" href="#">
-                                О компании
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="{% url 'company' %}">О компании</a></li>
-                                <li><a href="{% url 'workers' %}">Сотрудники</a></li>
-                                <li class="divider"></li>
-                                <li><a href="{% url 'contacts' %}">Контакты</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-</div>
 {% endblock header %}
 {% block body %}
 <div class="container">
-        <div class="carousel-section">
+    <div class="row">
+        <div class="col-md-12 carousel-section">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     {% for image in carousel_images %}
-                        <li data-target="#myCarousel" data-slide-to="{{forloop.counter0}}" class={{forloop.first|yesno:"active,"}}></li>
+                    <li data-target="#myCarousel" data-slide-to="{{forloop.counter0}}" class={{forloop.first|yesno:"active,"}}></li>
                     {% endfor %}
                 </ol>
                 <div class="carousel-inner" role="listbox">
                     {% for image in carousel_images %}
-                        <div class="item {{forloop.first|yesno:'active,'}}">
-                            <img src="{{image.image.url}}" height="85%" width="85%"/>
-                            <div class="carousel-caption">
-                                <h2>{{ image.text }}</h2>
-                            </div>
+                    <div class="item {{forloop.first|yesno:'active,'}}">
+                        <img src="{{image.image.url}}" height="85%" width="85%"/>
+                        <div class="carousel-caption">
+                            <h2>{{ image.text }}</h2>
                         </div>
+                    </div>
                     {% endfor %}
                 </div>
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -98,5 +110,6 @@
                 </a>
             </div>
         </div>
+    </div>
 </div>
 {% endblock body %}
