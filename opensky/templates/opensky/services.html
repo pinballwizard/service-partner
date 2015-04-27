@@ -15,9 +15,8 @@
                 <div class="row">
                     {% for service in services %}
                         <div class="col-md-3">
-                            <img class="img-circle" src="{{ service.image.url }}" width="75%" height="75%">
-                            <h4>{{service.header}}</h4>
-                            <p>{{service.text}}</p>
+                            <h4>{{ service.header }}</h4>
+                            <p>{{ service.text|safe }}</p>
                         </div>
                     {% endfor %}
                 </div>

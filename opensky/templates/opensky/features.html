@@ -27,10 +27,7 @@
                     {% for feature in features %}
                         <div class="tab-pane {{forloop.first|yesno:'fade in active,'}}"  id="{{feature.pk}}">
                             <div class="container-fluid">
-                                <img class="img-responsive features-img" src="{{feature.image.url}}">
-                                <div class="text-justify">
-                                    <p>{{ feature.text }}</p>
-                                </div>
+                                <p>{{ feature.text|safe }}</p>
                             </div>
                         </div>
                     {% endfor %}

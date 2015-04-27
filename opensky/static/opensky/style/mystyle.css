@@ -43,7 +43,7 @@ body {
     border: none;
 }
 
-.navbar-default .navbar-nav>li>a {
+.navbar-default .mynav>li>a {
     color:#FFFFFF;
     font-size: 14px;
     font-weight: bold;
@@ -61,6 +61,7 @@ body {
 .nav>.open>a{
     background-color: #FFFFFF !important;
     border-radius: 10px 10px 0 0;
+    color: #404040;
 }
 
 li>a{
@@ -301,3 +302,17 @@ td:last-child{
     height: 35%;
 }
 
+@media (min-width: 768px){
+    /*.navbar-nav {*/
+        /*margin: 0 auto;*/
+        /*display: table;*/
+        /*table-layout: auto;*/
+        /*float: none;*/
+        /*width: 100%;*/
+    /*}*/
+    .navbar-nav>li {
+        display: table-cell;
+        float: none;
+        text-align: center;
+    }
+}

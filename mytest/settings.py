@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'opensky',
+    'django_summernote',
 )
 
 MIDDLEWARE_CLASSES = (

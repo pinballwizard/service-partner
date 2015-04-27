@@ -34,7 +34,7 @@ class CarouselImage(models.Model):
 
 
 class Feature(models.Model):
-    image = models.ImageField("Изображение")
+    # image = models.ImageField("Изображение")
     header = models.CharField("Заголовок", max_length=100)
     text = models.TextField("Описание", max_length=10000)
 
@@ -43,7 +43,7 @@ class Feature(models.Model):
 
 
 class Service(models.Model):
-    image = models.ImageField("Изображение")
+    # image = models.ImageField("Изображение")
     header = models.CharField("Заголовок", max_length=100)
     text = models.TextField("Описание", max_length=1000)
 

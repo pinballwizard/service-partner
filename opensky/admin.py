@@ -1,12 +1,13 @@
 from django.contrib import admin
 from opensky.models import *
+from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(CarouselImage)
 class CarouselImageAdmin(admin.ModelAdmin):
     list_display = ('text', 'position', 'image')
 
 @admin.register(Feature)
-class FeatureAdmin(admin.ModelAdmin):
+class FeatureAdmin(SummernoteModelAdmin):
     list_display = ('header', 'text')
 
 @admin.register(Equipment)
@@ -14,7 +15,7 @@ class EquipmentAdmin(admin.ModelAdmin):
     list_display = ('name', 'manufacturer', 'price', 'count')
 
 @admin.register(Service)
-class ServiceAdmin(admin.ModelAdmin):
+class ServiceAdmin(SummernoteModelAdmin):
     list_display = ('header', 'text')
 
 @admin.register(Partner)
@@ -35,7 +36,7 @@ class OfficeAdmin(admin.ModelAdmin):
         obj.save()
 
 @admin.register(Blog)
-class BlogAdmin(admin.ModelAdmin):
+class BlogAdmin(SummernoteModelAdmin):
     list_display = ('mark', 'text')
 
 @admin.register(SocialWidget)

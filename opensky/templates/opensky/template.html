@@ -26,10 +26,10 @@
     <header class="header">
         <div class="container">
             <nav class="navbar navbar-default">
-                <div class="navbar-header">
-                    <a class="navbar-brand hidden-sm" href="{% url 'home' %}">
+                <div class="navbar-header hidden-sm">
+                    <a class="navbar-brand" href="{% url 'home' %}">
                         <img src="{% static 'opensky/images/logo-small.png' %}" height="40px" width="40px">
-                        <span>СЕРВИС-ПАРТНЕР</span>
+                        <span class="hidden-md">СЕРВИС-ПАРТНЕР</span>
                     </a>
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span class="icon-bar"></span>
@@ -38,13 +38,13 @@
                     </button>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav">
+                    <ul class="mynav nav navbar-nav">
                         <li><a href="{% url 'home' %}">ГЛАВНАЯ</a></li>
                         <li><a href="{% url 'features' %}">РЕШЕНИЯ</a></li>
                         <li><a href="{% url 'equipment' %}">ОБОРУДОВАНИЕ</a></li>
                         <li><a href="{% url 'pricing' %}">ЦЕНЫ</a></li>
                         <li><a href="{% url 'services' %}">МОНИТОРИНГ</a></li>
-                        <li class="dropdown">
+                        <li class="dropdown text-nowrap">
                             <a class="dropdown-toggle" data-toggle="dropdown" id="menu1" href="#">
                                 О КОМПАНИИ
                                 <span class="caret"></span>
