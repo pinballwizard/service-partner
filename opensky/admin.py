@@ -8,7 +8,7 @@ class CarouselImageAdmin(admin.ModelAdmin):
 
 @admin.register(Feature)
 class FeatureAdmin(SummernoteModelAdmin):
-    list_display = ('header', 'text')
+    list_display = ('header', 'image', 'text')
 
 @admin.register(Equipment)
 class EquipmentAdmin(admin.ModelAdmin):
