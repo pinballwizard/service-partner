@@ -121,7 +121,7 @@ class SocialWidget(models.Model):
 
 
 class Price(models.Model):
-    name = models.CharField("Название", max_length=30)
+    name = models.CharField("Название", max_length=100)
     price = models.IntegerField("Цена", blank=True)
 
     def __str__(self):
