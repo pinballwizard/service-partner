@@ -45,7 +45,7 @@ class Feature(models.Model):
 class Service(models.Model):
     # image = models.ImageField("Изображение")
     header = models.CharField("Заголовок", max_length=100)
-    text = models.TextField("Описание", max_length=1000)
+    text = models.TextField("Описание", max_length=10000)
 
     def __str__(self):
         return self.header
