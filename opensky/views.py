@@ -100,7 +100,8 @@ def features(request):
 
 def pricing(request):
     data = {
-        'prices': Price.objects.all(),
+        'equipment_prices': EquipmentPrice.objects.all(),
+        'monitoring_prices': MonitoringPrice.objects.all(),
         'widgets': SocialWidget.objects.all(),
         'office': Office.objects.get(pk=1),
     }

@@ -11,8 +11,8 @@ class FeatureAdmin(SummernoteModelAdmin):
     list_display = ('header', 'image', 'text')
 
 @admin.register(Equipment)
-class EquipmentAdmin(admin.ModelAdmin):
-    list_display = ('name', 'manufacturer', 'price', 'count')
+class EquipmentAdmin(SummernoteModelAdmin):
+    list_display = ('name', 'manufacturer', 'description')
 
 @admin.register(Service)
 class ServiceAdmin(SummernoteModelAdmin):
@@ -43,7 +43,11 @@ class BlogAdmin(SummernoteModelAdmin):
 class SocialWidgetAdmin(admin.ModelAdmin):
     list_display = ('name', 'url')
 
-@admin.register(Price)
+@admin.register(EquipmentPrice)
+class PriceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'price')
+
+@admin.register(MonitoringPrice)
 class PriceAdmin(admin.ModelAdmin):
     list_display = ('name', 'price')
 

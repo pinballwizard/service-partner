@@ -61,12 +61,12 @@ class Partner(models.Model):
 
 
 class Equipment(models.Model):
-    name = models.CharField("Наименование", max_length=30, unique=True)
-    description = models.TextField("Описание", max_length=200)
-    manufacturer = models.CharField("Производитель", max_length=30)
-    price = models.IntegerField("Цена")
+    name = models.CharField("Наименование", max_length=60, unique=True)
+    description = models.TextField("Описание", max_length=500)
+    manufacturer = models.CharField("Производитель", max_length=60)
+    # price = models.IntegerField("Цена")
     image = models.ImageField("Изображение")
-    count = models.IntegerField("Количество")
+    # count = models.IntegerField("Количество")
 
     def __str__(self):
         return self.name
@@ -120,7 +120,15 @@ class SocialWidget(models.Model):
         return self.name
 
 
-class Price(models.Model):
+class EquipmentPrice(models.Model):
+    name = models.CharField("Название", max_length=100)
+    price = models.IntegerField("Цена", blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class MonitoringPrice(models.Model):
     name = models.CharField("Название", max_length=100)
     price = models.IntegerField("Цена", blank=True)
 

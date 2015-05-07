@@ -144,8 +144,8 @@ li>a{
 }
 
 .panel-primary{
-    height: auto;
-    min-height: 270px;
+    /*height: auto;*/
+    /*height: 300px;*/
 }
 
 .panel-body>figure{
@@ -300,6 +300,16 @@ td:last-child{
     padding: 3%;
     width: 35%;
     height: 35%;
+}
+
+.modalClick{
+    cursor: pointer;
+}
+
+.mImage{
+    /*width: 200px;*/
+    /*height: inherit;*/
+    /*overflow: hidden;*/
 }
 
 @media (min-width: 768px){

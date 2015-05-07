@@ -13,7 +13,7 @@ $(document).ready(function() {
     afterClick.parent().addClass("active");
     afterClick.parents(".dropdown").addClass("active");
 
-    $(".modalImage").click(function(){
+    $(".modalClick").click(function(){
         $(this).siblings(".myModal").modal('show')
     });
 

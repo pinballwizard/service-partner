@@ -15,13 +15,28 @@
             </div>
             <div class="col-md-6">
                 <div class="panel panel-info">
-                    <div class="panel-heading"><b>Прайс-лист</b></div>
+                    <div class="panel-heading"><b>Оборудование с установкой</b></div>
                     <table class="table">
                         <tr>
                             <th>Название</th>
                             <th>Цена в рублях</th>
                         </tr>
-                        {% for item in prices %}
+                        {% for item in equipment_prices %}
+                            <tr>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.price }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class="panel panel-info">
+                    <div class="panel-heading"><b>Мониторинг</b></div>
+                    <table class="table">
+                        <tr>
+                            <th>Название</th>
+                            <th>Цена в рублях</th>
+                        </tr>
+                        {% for item in monitoring_prices %}
                             <tr>
                                 <td>{{ item.name }}</td>
                                 <td>{{ item.price }}</td>
