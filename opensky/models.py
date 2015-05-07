@@ -62,7 +62,7 @@ class Partner(models.Model):
 
 class Equipment(models.Model):
     name = models.CharField("Наименование", max_length=60, unique=True)
-    description = models.TextField("Описание", max_length=500)
+    description = models.TextField("Описание", max_length=5000)
     manufacturer = models.CharField("Производитель", max_length=60)
     # price = models.IntegerField("Цена")
     image = models.ImageField("Изображение")
