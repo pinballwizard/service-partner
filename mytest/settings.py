@@ -20,11 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'nyg1guv)*q)1gr+-n%kf$ucgvc0hdqk=_9*-y-zdtbb!!ro99!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.service-partner.pro',
+]
 
 
 # Application definition
@@ -98,6 +100,6 @@ EMAIL_HOST = 'smtp.yandex.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'ooo.service-partner@yandex.ru'
 # EMAIL_HOST_PASSWORD = 'xVSTuUEWWk'
-EMAIL_HOST_PASSWORD = 'xVSTuUEWWk'
+EMAIL_HOST_PASSWORD = 'shambaz2015'
 # EMAIL_USE_TLS = True
 EMAIL_USE_SSL = True
