@@ -13,9 +13,13 @@
                     <img class="media-object hidden-sm hidden-xs" src="{% static 'opensky/images/logo.png' %}" height="110px" width="110px">
                 </div>
                 <div class="media-body logo-text">
-                    <span>сервис<br>партнер</span><br>
-                    <span class="text-nowrap">
+                    <span>СЕРВИС<br>ПАРТНЕР</span><br>
+                    <span class="text-nowrap hidden-md hidden-sm hidden-xs">
                         мониторинг транспорта
+                    </span>
+                    <span class="hidden-lg">
+                        8 {{ office.phone1 }} <br>
+                        8 {{ office.phone2 }}
                     </span>
                 </div>
             </div>
@@ -23,7 +27,7 @@
         <div class="col-lg-8">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-7 col-md-offset-1">
+                    <div class="col-md-7 col-md-offset-1 hidden-md hidden-sm hidden-xs">
                         <div class="phone-header text-nowrap">
                             <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
                             Отдел продаж: <span class="phone-number"> {{ office.phone1 }}</span> <br>
@@ -31,14 +35,14 @@
                             Тех. отдел: <span class="phone-number"> {{ office.phone2 }}</span>
                         </div>
                     </div>
-                    <div class="col-md-4 text-center enter">
+                    <div class="col-md-4 text-right enter">
                         <a href="http://www.wialon.pro">
                             <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
                              ВОЙТИ В СИСТЕМУ
                         </a><br>
-                        для демо-входа<br>
+                        <p class="hidden-md hidden-sm hidden-xs">для демо-входа<br>
                         логин: user<br>
-                        пароль: user<br>
+                        пароль: user<br></p>
                     </div>
                 </div>
                 <div class="row">
