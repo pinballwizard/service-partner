@@ -26,6 +26,7 @@ body {
 .navbar-brand{
     font-weight: bold;
     padding-top: 6px;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-brand>img{
@@ -91,9 +92,6 @@ li>a{
     font-size: 12px;
 }
 
-.carousel-section {
-    background-color: #EBEEF2;
-}
 .carousel-inner>.item>img{
     margin: auto;
     padding: 10%;
@@ -107,6 +105,14 @@ li>a{
 .carousel-control.right,
 .carousel-control.left{
     background-image: none;
+    opacity: 1;
+    text-shadow: none;
+}
+.carousel-control:hover{
+    opacity: 0.5;
+}
+.carousel-control:active{
+    opacity: 0.7;
 }
 
 .glyphicon-chevron-left,
@@ -139,14 +145,6 @@ li>a{
     /*background-color: #EBEEF2;*/
 }
 
-.product{
-    height: 100%;
-}
-
-.panel-primary{
-    /*height: auto;*/
-    /*height: 300px;*/
-}
 
 .panel-body>figure{
     text-align:center;
@@ -270,7 +268,7 @@ td:last-child{
 .logo-text>span:first-child{
     line-height: 35px;
     font-size: 36px;
-    font-family: 'Azoft Sans', sans-serif;
+    font-weight: bold;
 }
 .logo-text>span:last-child{
     font-size: 14px;
@@ -306,11 +304,6 @@ td:last-child{
     cursor: pointer;
 }
 
-.mImage{
-    /*width: 200px;*/
-    /*height: inherit;*/
-    /*overflow: hidden;*/
-}
 
 @media (min-width: 768px){
     /*.navbar-nav {*/
