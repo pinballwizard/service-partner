@@ -7,27 +7,29 @@
 {% block header %}
 <div class="container main-logo">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-6">
             <div class="media">
                 <div class="media-middle media-left">
                     <img class="media-object hidden-sm hidden-xs" src="{% static 'opensky/images/logo.png' %}" height="110px" width="110px">
                 </div>
                 <div class="media-body logo-text">
                     <span>СЕРВИС<br>ПАРТНЕР</span><br>
-                    <span class="text-nowrap hidden-md hidden-sm hidden-xs">
+                    <span class="text-nowrap hidden-xs">
                         мониторинг транспорта
                     </span>
-                    <span class="hidden-lg">
-                        8 {{ office.phone1 }} <br>
-                        8 {{ office.phone2 }}
-                    </span>
+                    <h2 class="hidden-lg hidden-md hidden-sm phone-number2">
+                        <b>
+                            8 {{ office.phone1 }} <br>
+                            8 {{ office.phone2 }}
+                        </b>
+                    </h2>
                 </div>
             </div>
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-6">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-7 col-md-offset-1 hidden-md hidden-sm hidden-xs">
+                    <div class="col-lg-7 col-lg-offset-1 col-md-6 col-sm-6 hidden-xs">
                         <div class="phone-header text-nowrap">
                             <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>
                             Отдел продаж: <span class="phone-number"> {{ office.phone1 }}</span> <br>
@@ -35,18 +37,18 @@
                             Тех. отдел: <span class="phone-number"> {{ office.phone2 }}</span>
                         </div>
                     </div>
-                    <div class="col-md-4 text-right enter">
+                    <div class="col-lg-4 col-md-6 col-sm-6 text-right enter">
                         <a href="http://www.wialon.pro">
                             <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>
                              ВОЙТИ В СИСТЕМУ
                         </a><br>
-                        <p class="hidden-md hidden-sm hidden-xs">для демо-входа<br>
+                        <p>для демо-входа<br>
                         логин: user<br>
                         пароль: user<br></p>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
                         <nav class="navbar navbar-default">
                             <div class="navbar-header">
                                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
