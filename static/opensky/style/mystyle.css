@@ -258,7 +258,10 @@ td:last-child{
     line-height: 30px;
 }
 .phone-number{
-    font-size: 18px;
+    font-size: 20px;
+}
+.phone-number2{
+    font-size: 20px;
 }
 
 .logo-text{
@@ -269,9 +272,12 @@ td:last-child{
     line-height: 35px;
     font-size: 36px;
     font-weight: bold;
+<<<<<<< HEAD
 }
 .logo-text>span:last-child{
     font-size: 14px;
+=======
+>>>>>>> de6bdd0e5aba47fa22f37a146b6e585028747b6a
 }
 
 .main-logo{
